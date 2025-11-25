@@ -44,7 +44,7 @@ export function Home() {
             className="text-4xl md:text-5xl font-semibold leading-tight text-blush"
             data-reveal
           >
-            Experiencias gourmet con fresas que brillan como gemas.
+            Desde La Unión, Antioquia, creamos fresas orgánicas reales con un toque etéreo.
           </motion.h1>
           <motion.p className="text-lg text-blush/70 max-w-2xl" data-reveal>
             {siteConfig.slogan}
@@ -64,8 +64,9 @@ export function Home() {
           </motion.div>
           <motion.div className="flex gap-6" data-reveal>
             {[
-              { label: 'Cosecha nocturna', value: '100% orgánica' },
-              { label: 'Textura', value: 'Satinada y fresca' },
+              { label: 'Origen', value: 'La Unión, Antioquia – Colombia' },
+              { label: 'Equipo', value: 'Dos jóvenes de 20 años' },
+              { label: 'Catálogo', value: 'Orgánico, sin certificación aún' },
             ].map((item) => (
               <div key={item.label} className="space-y-1">
                 <p className="text-xs uppercase tracking-[0.2em] text-blush/60">{item.label}</p>
@@ -92,8 +93,8 @@ export function Home() {
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
             <div className="absolute bottom-6 left-6 text-blush">
-              <p className="uppercase text-xs tracking-[0.3em] text-blush/70">Cosecha 2025</p>
-              <p className="text-2xl font-semibold">Glow Crimson</p>
+              <p className="uppercase text-xs tracking-[0.3em] text-blush/70">Nacimos en 2024</p>
+              <p className="text-2xl font-semibold">Ethereal en La Unión</p>
             </div>
           </motion.div>
         </div>
@@ -101,9 +102,9 @@ export function Home() {
 
       <section className="section-padding grid md:grid-cols-3 gap-6" data-aos="fade-up">
         {[
-          'Agricultura regenerativa y cero pesticidas',
-          'Cosecha bajo luna para máximo aroma',
-          'Empaques fríos con huella mínima',
+          'Envíos el mismo día en La Unión y municipios aledaños',
+          'Cobertura nacional: menos de una semana a otras ciudades',
+          'Pagos: efectivo, transferencia y Nequi (sin tarjetas ni PSE)',
         ].map((text) => (
           <div key={text} className="glass-panel p-6 rounded-3xl border border-white/10">
             <div className="w-10 h-10 rounded-xl bg-white/10 mb-4 flex items-center justify-center">
@@ -131,7 +132,9 @@ export function Home() {
           <div className="glare" />
           <div className="space-y-4">
             <h3 className="text-3xl font-semibold">Respira frescura</h3>
-            <p className="text-blush/70">Recorre nuestro catálogo y arma tu ritual de fresas perfectas, mermeladas aterciopeladas y elixires botánicos.</p>
+            <p className="text-blush/70">
+              Somos un emprendimiento joven de La Unión que trabaja con fresas orgánicas reales (catálogo no definitivo). Puedes pedir cajas personalizadas, empaques de regalo o revisar si sumamos un producto nuevo.
+            </p>
             <Link to="/catalogo" className="neon-button inline-flex w-fit">Explorar catálogo</Link>
           </div>
           <div className="relative">

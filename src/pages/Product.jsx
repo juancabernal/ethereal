@@ -39,7 +39,7 @@ export function Product() {
 
   const total = product.price * quantity;
   const whatsappMessage = encodeURIComponent(
-    `Hola, quiero comprar ${quantity} unidades de ${product.name} en ETHEREAL.`,
+    `Hola, quiero comprar ${quantity} unidades de ${product.name} en ETHEREAL y coordinar envío desde La Unión, Antioquia.`,
   );
 
   const recommended = products.filter((item) => item.id !== product.id).slice(0, 2);
@@ -86,7 +86,8 @@ export function Product() {
             </div>
             <div className="text-right">
               <p className="text-blush/60 text-sm">Precio</p>
-              <p className="text-3xl font-semibold text-neon">${total} MXN</p>
+              <p className="text-3xl font-semibold text-neon">${total} COP</p>
+              <p className="text-xs text-blush/60">Valor referencial, ajustable según cantidad o personalizaciones.</p>
             </div>
           </div>
           <a
@@ -97,6 +98,11 @@ export function Product() {
           >
             Comprar vía WhatsApp
           </a>
+          <div className="space-y-1 text-sm text-blush/70">
+            <p>Envíos el mismo día en La Unión y municipios cercanos; menos de una semana para otras ciudades.</p>
+            <p>Pagos: efectivo, transferencia o Nequi. Sin tarjetas ni PSE; contraentrega solo negociada por WhatsApp.</p>
+            <p>¿Necesitas cajas personalizadas, regalos o un producto no listado? Podemos revisar si es posible añadirlo.</p>
+          </div>
           <div>
             <h3 className="text-xl font-semibold mb-3">Información nutricional</h3>
             <div className="grid sm:grid-cols-2 gap-3">

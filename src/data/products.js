@@ -7,9 +7,10 @@ export const products = [
       'https://images.unsplash.com/photo-1464965911861-746a04b4bca6?auto=format&fit=crop&w=1200&q=80',
       'https://images.unsplash.com/photo-1439127989242-c3749a012eac?auto=format&fit=crop&w=1200&q=80',
     ],
-    shortDescription: 'Caja de fresas orgánicas seleccionadas, dulzor natural y aroma floral.',
+    shortDescription:
+      'Caja de fresas orgánicas locales, sin certificación aún y con dulzor natural de cosecha fresca.',
     longDescription:
-      'Cultivadas en micro-lotes, nuestras Berries Aurora se cosechan de madrugada para preservar su frescura máxima. Textura sedosa, notas florales y un dulzor equilibrado que eleva postres, smoothies y degustaciones premium.',
+      'Cultivadas por emprendedores vecinos de La Unión, estas fresas se cosechan el mismo día para mantener su aroma floral y textura satinada. Son lotes vivos, sin certificación todavía, ideales para postres simples, smoothies y degustaciones sinceras mientras nuestro catálogo sigue evolucionando.',
     nutritionalInfo: [
       { label: 'Calorías', value: '32 kcal por 100 g' },
       { label: 'Vitamina C', value: '58.8 mg' },
@@ -38,9 +39,10 @@ export const products = [
       'https://images.unsplash.com/photo-1467003909585-2f8a72700288?auto=format&fit=crop&w=1200&q=80',
       'https://images.unsplash.com/photo-1481391319762-47c0e9774757?auto=format&fit=crop&w=1200&q=80',
     ],
-    shortDescription: 'Concentrado de fresa fría con pétalos de rosa orgánica y notas de vainilla.',
+    shortDescription:
+      'Elixir frío de fresas orgánicas locales con notas florales; batch pequeño y aún sin certificación.',
     longDescription:
-      'Infusión en frío que preserva antioxidantes y crea un sabor aterciopelado. Ideal para mezclar con agua mineral, cocteles o degustar en shots energéticos. Sin azúcares añadidos, solo fruta real y botánicos.',
+      'Infusión en frío con fruta real de La Unión y botánicos suaves. Lo usamos como base versátil para mocktails, cocteles ligeros o shots energizantes sin azúcar añadida. Es una prueba de catálogo (no definitivo) y podemos ajustar sabores si necesitas algo especial.',
     nutritionalInfo: [
       { label: 'Antioxidantes', value: 'Alto contenido de polifenoles' },
       { label: 'Azúcares añadidos', value: '0 g' },
@@ -69,9 +71,10 @@ export const products = [
       'https://images.unsplash.com/photo-1459346264320-29f97b05b4c6?auto=format&fit=crop&w=1200&q=80',
       'https://images.unsplash.com/photo-1464965911861-746a04b4bca6?auto=format&fit=crop&w=1200&q=80',
     ],
-    shortDescription: 'Mermelada de fresa artesanal con pimienta rosa y notas de cedrón.',
+    shortDescription:
+      'Mermelada de fresa artesanal con especias suaves, hecha con fruta orgánica local.',
     longDescription:
-      'Cocción lenta en lotes pequeños para conservar textura brillante y semillas delicadas. Perfume herbal y final cítrico que eleva quesos madurados, panes de masa madre o yogurt estilo griego.',
+      'Cocción lenta en lotes pequeños con fresas cultivadas por aliados locales. Sin certificación todavía, pero con ingredientes reales y perfil ligero que funciona en panes, yogures o tablas sencillas. Podemos adaptar el toque de especias o el nivel de dulzor si buscas un lote personalizado.',
     nutritionalInfo: [
       { label: 'Azúcares naturales', value: '12 g por porción de 20 g' },
       { label: 'Origen', value: 'Fresas de invernadero biodinámico' },

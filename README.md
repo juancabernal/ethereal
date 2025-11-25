@@ -94,3 +94,7 @@ Con estos pasos puedes personalizar ETHEREAL sin conocimientos previos y lanzarl
 - Tipografía global actualizada a una fuente premium para toda la interfaz.
 - Chatbot flotante integrado con respuestas basadas en los productos disponibles.
 - Revisión de responsividad para móvil, tablet y desktop con el nuevo widget y animaciones.
+
+## 📍 Actualización de Información General (Ubicación y Empresa)
+
+Se reemplazó la información por defecto con los datos reales de ETHEREAL: ahora se refleja la ubicación en La Unión, Antioquia – Colombia, la historia del emprendimiento (dos jóvenes de 20 años desde 2024), la oferta de fresas orgánicas locales sin certificación aún, políticas de envíos y pagos, y la posibilidad de personalizar pedidos o revisar nuevos productos.

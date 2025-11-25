@@ -1,7 +1,8 @@
 export const siteConfig = {
   whatsappNumber: '+573226374266',
   brandName: 'ETHEREAL',
-  slogan: 'Fresas orgánicas de lujo con experiencias sensoriales únicas.',
+  slogan:
+    'Fresas orgánicas cultivadas en La Unión, Antioquia por dos jóvenes de 20 años que viven lo etéreo.',
   colors: {
     primary: '#ff3268',
     secondary: '#5d3a74',
@@ -15,8 +16,8 @@ export const siteConfig = {
     tiktok: 'https://tiktok.com/@ethereal.fresas',
   },
   company: {
-    name: 'ETHEREAL ORGANIC STRAWBERRIES',
-    address: 'Valle Verde, Yucatán, México',
+    name: 'ETHEREAL',
+    address: 'La Unión, Antioquia – Colombia',
     email: 'hola@etherealorganic.com',
   },
 };

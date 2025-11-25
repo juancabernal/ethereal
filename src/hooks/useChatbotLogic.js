@@ -31,7 +31,8 @@ export function useChatbotLogic() {
   const [messages, setMessages] = useState([
     {
       role: 'bot',
-      text: "Hola, soy el asistente de ETHEREAL. Pregúntame sobre productos, precios, recetas o cómo pedir por WhatsApp.",
+      text:
+        'Hola, soy el asistente de ETHEREAL en La Unión, Antioquia. Pregúntame sobre fresas orgánicas, envíos, pagos, recetas o cómo pedir por WhatsApp.',
     },
   ]);
   const [isOpen, setIsOpen] = useState(false);
@@ -53,23 +54,43 @@ export function useChatbotLogic() {
       if (q.includes('nutri') || q.includes('vit')) {
         return `Info nutricional de ${matched.name}: ${summarizeNutrition(matched)}.`;
       }
-      return `${matched.name}: ${matched.shortDescription}. Precio: $${matched.price} MXN. Podemos enviar ${matched.name} en ${matched.images.length} presentaciones. Escríbenos por WhatsApp para pedir.`;
+      return `${matched.name}: ${matched.shortDescription}. Precio referencial: $${matched.price} COP. Son fresas orgánicas locales (sin certificación aún). Podemos coordinar envío y ajustar el pedido por WhatsApp.`;
     }
 
-    if (q.includes('precio') || q.includes('cuánto') || q.includes('cost')) {
-      return `Nuestros precios van de $${priceRange.min} a $${priceRange.max} MXN dependiendo del producto y cantidad.`;
+    if (q.includes('ubic') || q.includes('donde') || q.includes('loca') || q.includes('la union')) {
+      return 'Estamos en La Unión, Antioquia – Colombia. Somos dos jóvenes de 20 años y coordinamos todo desde aquí; podemos entregar el mismo día en el municipio y alrededores y cubrir el resto del país en menos de una semana.';
+    }
+
+    if (q.includes('envio') || q.includes('entrega') || q.includes('domicilio') || q.includes('cobertura')) {
+      return 'Entregamos el mismo día en La Unión y municipios aledaños. Para otros destinos solemos demorar menos de una semana; en zonas lejanas puede haber mínimos, negociables por WhatsApp. Hay cobertura nacional.';
+    }
+
+    if (q.includes('pago') || q.includes('tarjeta') || q.includes('transfer') || q.includes('nequi') || q.includes('pse')) {
+      return 'Métodos de pago: efectivo, transferencia y Nequi. No aceptamos tarjetas, PSE ni Daviplata. Pagos contraentrega no están disponibles, pero se pueden evaluar casos excepcionales por WhatsApp.';
     }
 
     if (q.includes('pedido') || q.includes('comprar') || q.includes('whatsapp')) {
-      return `Haz tu pedido directo en WhatsApp: ${siteConfig.whatsappNumber}. Enviaremos un mensaje prellenado para ti.`;
+      return `Haz tu pedido directo en WhatsApp: ${siteConfig.whatsappNumber}. Cuéntanos cantidades, si necesitas cajas personalizadas o si quieres revisar si se puede añadir un producto no listado.`;
     }
 
     if (q.includes('producto') || q.includes('catálogo') || q.includes('catalogo')) {
       const top = products
         .slice(0, 3)
-        .map((p) => `${p.name} ($${p.price} MXN)`) 
+        .map((p) => `${p.name} ($${p.price} COP)`) // catálogo no definitivo
         .join(' · ');
-      return `Algunos destacados: ${top}. También puedes ver recetas y nutrición dentro de cada ficha.`;
+      return `Nuestro catálogo no es definitivo; algunos destacados son: ${top}. Si buscas algo fuera de la lista, podemos revisar si es posible añadirlo.`;
+    }
+
+    if (q.includes('personaliz') || q.includes('regalo') || q.includes('mayor') || q.includes('caja') || q.includes('especial')) {
+      return 'Aceptamos cajas personalizadas, empaques de regalo, cantidades grandes y descuentos por compras al por mayor (negociados por WhatsApp). Dinos qué tienes en mente y lo revisamos.';
+    }
+
+    if (q.includes('horario') || q.includes('hora')) {
+      return 'Atendemos 24/7 con tono cercano y juvenil. A veces las respuestas no son inmediatas, pero siempre te respondemos.';
+    }
+
+    if (q.includes('receta') || q.includes('parfait') || q.includes('smoothie') || q.includes('mermelada') || q.includes('batido')) {
+      return 'Ideas rápidas: Parfait de yogurt y granola con fresas; Smoothie cremoso con fresa y banano; Mermelada casera a fuego bajo; Batido ligero con leche de almendra; Fresas con crema; Postres simples como tartaletas; Torta sencilla con relleno de fresa. Puedo darte más detalles si me dices cuál te gusta.';
     }
 
     return baseResponses.fallback[Math.floor(Math.random() * baseResponses.fallback.length)];
