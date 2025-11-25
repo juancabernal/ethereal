@@ -2,17 +2,48 @@ import { useMemo, useState } from 'react';
 import { products, activeProducts } from '../data/products';
 import { globalConfig } from '../config/globalConfig';
 import { baseResponses } from '../data/chatResponses';
+import { knowledgeBase } from '../data/knowledgeBase';
 
-const normalize = (text = '') => text.toLowerCase();
+const normalize = (text = '') =>
+  text
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .trim();
+
+const tokenize = (text = '') => normalize(text).split(/\s+/).filter(Boolean);
+
+const fuzzyIncludes = (question, keyword) => {
+  const q = normalize(question);
+  const k = normalize(keyword);
+  return q.includes(k) || k.includes(q) || q.split(' ').some((word) => word.startsWith(k.slice(0, 4)));
+};
+
+const scoreKeywords = (question, keywords = []) => {
+  const tokens = tokenize(question);
+  const normalizedKeywords = keywords.map(normalize);
+  const hits = normalizedKeywords.filter((kw) => tokens.some((token) => token.startsWith(kw.slice(0, 4)) || token === kw)).length;
+  const fuzzyHits = normalizedKeywords.filter((kw) => fuzzyIncludes(question, kw)).length;
+  return (hits * 2 + fuzzyHits) / Math.max(1, normalizedKeywords.length * 2);
+};
 
 const productMatches = (question) => {
   const q = normalize(question);
+  const tokens = tokenize(question);
   return products.find((product) =>
     q.includes(normalize(product.name)) ||
     normalize(product.name).includes(q) ||
     q.includes(product.id.toLowerCase()) ||
+    tokens.some((token) => product.keywords?.some((keyword) => normalize(keyword).startsWith(token.slice(0, 4)))) ||
     (product.shortDescription && q.includes(normalize(product.shortDescription))) ||
     (product.keywords && product.keywords.some((keyword) => q.includes(normalize(keyword)))),
+  );
+};
+
+const findFruitProfile = (question) => {
+  const q = normalize(question);
+  return knowledgeBase.products.find((item) =>
+    item.aliases.some((alias) => q.includes(normalize(alias))) || normalize(item.name).includes(q),
   );
 };
 
@@ -27,6 +58,23 @@ const summarizeRecipes = (product) =>
     .slice(0, 2)
     .map((recipe) => `${recipe.name} (${recipe.description})`)
     .join(' | ');
+
+const matchFAQ = (question) => {
+  const scores = knowledgeBase.faqs.map((faq) => ({
+    faq,
+    score: scoreKeywords(question, tokenize(faq.question)),
+  }));
+  return scores.sort((a, b) => b.score - a.score)[0];
+};
+
+const matchIntent = (question) => {
+  const scored = knowledgeBase.intents.map((intent) => ({
+    intent,
+    score: scoreKeywords(question, intent.keywords),
+  }));
+  const best = scored.sort((a, b) => b.score - a.score)[0];
+  return best && best.score >= 0.2 ? best.intent : null;
+};
 
 export function useChatbotLogic() {
   const [messages, setMessages] = useState([
@@ -45,66 +93,114 @@ export function useChatbotLogic() {
   }, []);
 
   const generateResponse = (question) => {
-    const q = normalize(question);
-    const matched = productMatches(q);
+    const matchedProduct = productMatches(question);
+    const fruitProfile = findFruitProfile(question);
+    const faqMatch = matchFAQ(question);
+    const intent = matchIntent(question);
+    const lowerQuestion = normalize(question);
 
-    if (matched) {
-      if (!matched.isActive) {
-        return `${matched.name} está temporalmente fuera del catálogo activo. Podemos revisar disponibilidad o recomendar un reemplazo si nos escribes a WhatsApp: ${globalConfig.whatsapp}.`;
+    if (matchedProduct) {
+      if (!matchedProduct.isActive) {
+        return `${matchedProduct.name} está temporalmente fuera del catálogo activo. Podemos revisar disponibilidad o recomendar un reemplazo si nos escribes a WhatsApp: ${globalConfig.whatsapp}.`;
       }
-      if (q.includes('recet')) {
-        return `Para ${matched.name}, sugerimos: ${summarizeRecipes(matched)}.`;
+
+      if (lowerQuestion.includes('recet') || lowerQuestion.includes('idea')) {
+        return `Para ${matchedProduct.name}, sugerimos: ${summarizeRecipes(matchedProduct)}. ¿Quieres detalles paso a paso?`;
       }
-      if (q.includes('nutri') || q.includes('vit')) {
-        return `Info nutricional de ${matched.name}: ${summarizeNutrition(matched)}.`;
+
+      if (lowerQuestion.includes('nutri') || lowerQuestion.includes('vit')) {
+        return `Info nutricional de ${matchedProduct.name}: ${summarizeNutrition(matchedProduct)}. Puedo contarte más vitaminas o minerales si lo necesitas.`;
       }
-      if (q.includes('benef')) {
-        return `Beneficios de ${matched.name}: ${matched.benefits.join(' · ')}.`;
+
+      if (lowerQuestion.includes('benef')) {
+        return `Beneficios de ${matchedProduct.name}: ${matchedProduct.benefits.join(' · ')}.`;
       }
-      if (q.includes('precio') || q.includes('vale') || q.includes('cost')) {
-        return `${matched.name} está en $${matched.price} COP (pesos colombianos). Podemos ajustar según cantidad o personalización.`;
+
+      if (lowerQuestion.includes('precio') || lowerQuestion.includes('vale') || lowerQuestion.includes('cost')) {
+        return `${matchedProduct.name} está en $${matchedProduct.price} COP (pesos colombianos). Podemos ajustar según cantidad, personalización o combo con otros berries.`;
       }
-      return `${matched.name}: ${matched.shortDescription}. Precio referencial: $${matched.price} COP. Son productos orgánicos de berries con foco en fresas, elaborados localmente (sin certificación aún). Podemos coordinar envío y ajustar el pedido por WhatsApp.`;
+
+      return `${matchedProduct.name}: ${matchedProduct.shortDescription}. Precio referencial: $${matchedProduct.price} COP. Coordinamos envío y personalización directo en WhatsApp (${knowledgeBase.company.contact.whatsappLink}).`;
     }
 
-    if (q.includes('ubic') || q.includes('donde') || q.includes('loca') || q.includes('la union')) {
-      return `Estamos en ${globalConfig.ubicacion}. Somos dos jóvenes de 20 años y coordinamos todo desde aquí; podemos entregar el mismo día en el municipio y alrededores y cubrir el resto del país en menos de una semana.`;
-    }
-
-    if (q.includes('envio') || q.includes('entrega') || q.includes('domicilio') || q.includes('cobertura')) {
-      return `${globalConfig.textos.envio} En zonas lejanas puede haber mínimos, negociables por WhatsApp. Hay cobertura nacional.`;
-    }
-
-    if (q.includes('pago') || q.includes('tarjeta') || q.includes('transfer') || q.includes('nequi') || q.includes('pse')) {
-      return globalConfig.textos.pagos;
-    }
-
-      if (q.includes('pedido') || q.includes('comprar') || q.includes('whatsapp')) {
-        return `${globalConfig.textos.whatsappCTA} ${globalConfig.whatsapp}. Cuéntanos cantidades, si necesitas cajas personalizadas o si quieres revisar si se puede añadir un producto no listado.`;
+    if (fruitProfile) {
+      if (lowerQuestion.includes('benef')) {
+        return `${fruitProfile.name} · Beneficios: ${fruitProfile.benefits.join(' | ')}. Son ideales para planes saludables y snacks diarios.`;
       }
+      if (lowerQuestion.includes('nutri') || lowerQuestion.includes('vit') || lowerQuestion.includes('miner')) {
+        const { nutrition } = fruitProfile;
+        const vitaminList = nutrition.vitamins?.join(', ');
+        const mineralList = nutrition.minerals ? nutrition.minerals.join(', ') : undefined;
+        return `${fruitProfile.name} (por ${nutrition.serving || '100 g'}): ${nutrition.energy || ''}${nutrition.energy ? ' · ' : ''}${nutrition.carbs || ''}${nutrition.carbs ? ' · ' : ''}${nutrition.fiber || ''}${nutrition.fiber ? ' · ' : ''}${nutrition.sugars || ''}${nutrition.sugars ? ' · ' : ''}${nutrition.protein || ''}${nutrition.protein ? ' · ' : ''}${nutrition.fat || ''}${nutrition.fat ? ' · ' : ''}${vitaminList ? `Vitaminas: ${vitaminList}` : ''}${mineralList ? ` · Minerales: ${mineralList}` : ''}`.replace(/ · $/, '');
+      }
+      return `${fruitProfile.name}: ${fruitProfile.description} Beneficios destacados: ${fruitProfile.benefits.slice(0, 2).join(' · ')}.`;
+    }
 
-    if (q.includes('producto') || q.includes('catálogo') || q.includes('catalogo')) {
+    if (intent) {
+      switch (intent.responseKey) {
+        case 'shipping':
+          return `${knowledgeBase.shipping.sameDay} ${knowledgeBase.shipping.nearby} ${knowledgeBase.shipping.national} ${knowledgeBase.shipping.notes}`;
+        case 'payments':
+          return `Pagos aceptados: ${knowledgeBase.payments.accepted.join(', ')}. No aceptamos por ahora: ${knowledgeBase.payments.notAccepted.join(', ')}. ${knowledgeBase.payments.conditional}`;
+        case 'orders':
+          return `${globalConfig.textos.whatsappCTA} ${knowledgeBase.company.contact.whatsappLink}. Cuéntanos cantidades, destino y si quieres cajas personalizadas.`;
+        case 'pricing':
+          return `Nuestros precios referenciales van de $${priceRange.min} a $${priceRange.max} COP en productos activos. Dime qué formato necesitas y ajustamos.`;
+        case 'origin':
+          return `${knowledgeBase.company.location}; somos ${knowledgeBase.company.founders}. ${knowledgeBase.company.sourcing}`;
+        case 'philosophy':
+          return `${knowledgeBase.company.name} significa lo etéreo: ${knowledgeBase.company.philosophy}`;
+        case 'benefits':
+          return 'Nuestros berries son ricos en antioxidantes, vitamina C y fibra. Dime cuál te interesa (fresa, arándano, zarzamora) y te cuento beneficios detallados.';
+        case 'recipes': {
+          const recipe = knowledgeBase.recipes.find((item) => item.tags.some((tag) => lowerQuestion.includes(normalize(tag))));
+          if (recipe) {
+            return `${recipe.name} (${recipe.time}, ${recipe.servings}): Ingredientes: ${recipe.ingredients.join(', ')}. Preparación: ${recipe.preparation}`;
+          }
+          const list = knowledgeBase.recipes.slice(0, 3).map((r) => r.name).join(' · ');
+          return `Tenemos recetas con berries como: ${list}. Dime cuál te comparto paso a paso.`;
+        }
+        default:
+          break;
+      }
+    }
+
+    if (faqMatch?.score >= 0.35) {
+      return faqMatch.faq.answer;
+    }
+
+    if (lowerQuestion.includes('producto') || lowerQuestion.includes('catalogo') || lowerQuestion.includes('catálogo')) {
       const top = activeProducts
         .slice(0, 3)
         .map((p) => `${p.name} ($${p.price} COP)`) // catálogo no definitivo
         .join(' · ');
-      return `Nuestro catálogo de productos orgánicos de berries no es definitivo; algunos destacados son: ${top}. Si buscas algo fuera de la lista, podemos revisar si es posible añadirlo.`;
+      return `Catálogo orgánico en evolución: ${top}. Si buscas algo fuera de la lista, podemos añadirlo o armar combos.`;
     }
 
-    if (q.includes('cop') || q.includes('peso') || q.includes('colomb')) {
-      return 'Todos los valores están expresados en pesos colombianos (COP). Si necesitas cotización para otro país, lo coordinamos por WhatsApp.';
+    if (lowerQuestion.includes('cop') || lowerQuestion.includes('peso') || lowerQuestion.includes('colomb')) {
+      return 'Todos los valores están en pesos colombianos (COP). Si necesitas cotización internacional, la calculamos por WhatsApp.';
     }
 
-    if (q.includes('personaliz') || q.includes('regalo') || q.includes('mayor') || q.includes('caja') || q.includes('especial')) {
-      return 'Aceptamos cajas personalizadas, empaques de regalo, cantidades grandes y descuentos por compras al por mayor (negociados por WhatsApp). Dinos qué tienes en mente y lo revisamos.';
+    if (lowerQuestion.includes('personaliz') || lowerQuestion.includes('regalo') || lowerQuestion.includes('mayor') || lowerQuestion.includes('caja') || lowerQuestion.includes('especial')) {
+      return 'Preparamos cajas personalizadas, opciones para regalo y descuentos por volumen. Escríbenos tu idea y la armamos juntos.';
     }
 
-    if (q.includes('horario') || q.includes('hora')) {
-      return globalConfig.horarios;
+    if (lowerQuestion.includes('horario') || lowerQuestion.includes('hora')) {
+      return knowledgeBase.company.contact.availability;
     }
 
-    if (q.includes('receta') || q.includes('parfait') || q.includes('smoothie') || q.includes('mermelada') || q.includes('batido')) {
-      return 'Ideas rápidas: Parfait de yogurt y granola con fresas; Smoothie cremoso con fresa y banano; Mermelada casera a fuego bajo; Batido ligero con leche de almendra; Fresas con crema; Postres simples como tartaletas; Torta sencilla con relleno de fresa. Puedo darte más detalles si me dices cuál te gusta.';
+    if (lowerQuestion.includes('recom') || lowerQuestion.includes('suger') || lowerQuestion.includes('que me recomiendas')) {
+      const suggestion = knowledgeBase.suggestions.openers[Math.floor(Math.random() * knowledgeBase.suggestions.openers.length)];
+      const prompt = knowledgeBase.suggestions.prompts[Math.floor(Math.random() * knowledgeBase.suggestions.prompts.length)];
+      return `${suggestion} ${prompt}`;
+    }
+
+    if (lowerQuestion.includes('receta') || lowerQuestion.includes('parfait') || lowerQuestion.includes('smoothie') || lowerQuestion.includes('mermelada') || lowerQuestion.includes('batido')) {
+      const recipe = knowledgeBase.recipes.find((item) => item.tags.some((tag) => lowerQuestion.includes(normalize(tag))));
+      if (recipe) {
+        return `${recipe.name} (${recipe.time}, ${recipe.servings}): ${recipe.preparation}`;
+      }
+      return 'Tengo recetas como parfait de fresa, batido antioxidante, smoothie bowl y más. Dime cuál quieres y te la envío completa.';
     }
 
     return baseResponses.fallback[Math.floor(Math.random() * baseResponses.fallback.length)];
