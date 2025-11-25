@@ -114,3 +114,12 @@ Se reemplazó la información por defecto con los datos reales de ETHEREAL: ahor
 - Los productos ahora incluyen la propiedad `isActive` para activar/desactivar elementos sin borrarlos del catálogo o del buscador del chatbot.
 - Se añadieron imágenes coherentes por producto dentro de `public/img/` y se referencian desde `src/data/products.js`.
 - Para ajustar textos repetidos (horarios, mensajes de envío/pagos o CTA de WhatsApp) basta con editar `globalConfig` sin tocar múltiples archivos.
+
+## 🧠 Actualización avanzada del chatbot (Entrenamiento 500%)
+
+- Base de conocimiento ampliada con información completa de la empresa, envíos y pagos.
+- Nutrición científica incluida para fresas, arándanos y zarzamoras con datos oficiales.
+- Recetas reales añadidas con tiempos, porciones e instrucciones detalladas.
+- Beneficios de frutas y propiedades antioxidantes integradas en las respuestas.
+- FAQ extensa y respuestas naturales apoyadas en `globalConfig` y la nueva `knowledgeBase`.
+- Capacidad de sugerencias, comprensión flexible del lenguaje y manejo de preguntas abiertas.
