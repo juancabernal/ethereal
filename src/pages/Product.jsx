@@ -114,6 +114,18 @@ export function Product() {
               ))}
             </div>
           </div>
+          {product.benefits?.length ? (
+            <div>
+              <h3 className="text-xl font-semibold mb-3">Beneficios para la salud</h3>
+              <div className="grid sm:grid-cols-2 gap-3">
+                {product.benefits.map((benefit) => (
+                  <div key={benefit} className="glass-panel p-4 rounded-2xl border border-white/10">
+                    <p className="text-sm text-blush/70">{benefit}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ) : null}
           <div>
             <h3 className="text-xl font-semibold mb-3">Recetas sugeridas</h3>
             <div className="grid sm:grid-cols-2 gap-4">

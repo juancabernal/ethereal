@@ -11,7 +11,8 @@ const productMatches = (question) => {
     q.includes(normalize(product.name)) ||
     normalize(product.name).includes(q) ||
     q.includes(product.id.toLowerCase()) ||
-    (product.shortDescription && q.includes(normalize(product.shortDescription))),
+    (product.shortDescription && q.includes(normalize(product.shortDescription))) ||
+    (product.keywords && product.keywords.some((keyword) => q.includes(normalize(keyword)))),
   );
 };
 
@@ -32,7 +33,7 @@ export function useChatbotLogic() {
     {
       role: 'bot',
       text:
-        'Hola, soy el asistente de ETHEREAL en La Unión, Antioquia. Pregúntame sobre fresas orgánicas, envíos, pagos, recetas o cómo pedir por WhatsApp.',
+        'Hola, soy el asistente de ETHEREAL en La Unión, Antioquia. Pregúntame sobre nuestros productos orgánicos de berries (fresas, arándanos, zarzamoras), envíos, pagos, recetas o cómo pedir por WhatsApp.',
     },
   ]);
   const [isOpen, setIsOpen] = useState(false);
@@ -54,7 +55,13 @@ export function useChatbotLogic() {
       if (q.includes('nutri') || q.includes('vit')) {
         return `Info nutricional de ${matched.name}: ${summarizeNutrition(matched)}.`;
       }
-      return `${matched.name}: ${matched.shortDescription}. Precio referencial: $${matched.price} COP. Son fresas orgánicas locales (sin certificación aún). Podemos coordinar envío y ajustar el pedido por WhatsApp.`;
+      if (q.includes('benef')) {
+        return `Beneficios de ${matched.name}: ${matched.benefits.join(' · ')}.`;
+      }
+      if (q.includes('precio') || q.includes('vale') || q.includes('cost')) {
+        return `${matched.name} está en $${matched.price} COP (pesos colombianos). Podemos ajustar según cantidad o personalización.`;
+      }
+      return `${matched.name}: ${matched.shortDescription}. Precio referencial: $${matched.price} COP. Son productos orgánicos de berries con foco en fresas, elaborados localmente (sin certificación aún). Podemos coordinar envío y ajustar el pedido por WhatsApp.`;
     }
 
     if (q.includes('ubic') || q.includes('donde') || q.includes('loca') || q.includes('la union')) {
@@ -78,7 +85,11 @@ export function useChatbotLogic() {
         .slice(0, 3)
         .map((p) => `${p.name} ($${p.price} COP)`) // catálogo no definitivo
         .join(' · ');
-      return `Nuestro catálogo no es definitivo; algunos destacados son: ${top}. Si buscas algo fuera de la lista, podemos revisar si es posible añadirlo.`;
+      return `Nuestro catálogo de productos orgánicos de berries no es definitivo; algunos destacados son: ${top}. Si buscas algo fuera de la lista, podemos revisar si es posible añadirlo.`;
+    }
+
+    if (q.includes('cop') || q.includes('peso') || q.includes('colomb')) {
+      return 'Todos los valores están expresados en pesos colombianos (COP). Si necesitas cotización para otro país, lo coordinamos por WhatsApp.';
     }
 
     if (q.includes('personaliz') || q.includes('regalo') || q.includes('mayor') || q.includes('caja') || q.includes('especial')) {

@@ -98,3 +98,11 @@ Con estos pasos puedes personalizar ETHEREAL sin conocimientos previos y lanzarl
 ## 📍 Actualización de Información General (Ubicación y Empresa)
 
 Se reemplazó la información por defecto con los datos reales de ETHEREAL: ahora se refleja la ubicación en La Unión, Antioquia – Colombia, la historia del emprendimiento (dos jóvenes de 20 años desde 2024), la oferta de fresas orgánicas locales sin certificación aún, políticas de envíos y pagos, y la posibilidad de personalizar pedidos o revisar nuevos productos.
+
+## 🌱 Actualización: Expansión del catálogo a productos orgánicos
+
+- Nuevos productos orgánicos de berries (fresas, arándanos y zarzamoras)
+- Información nutricional profesional para cada presentación
+- Sección de beneficios para la salud en las páginas de producto
+- Precios actualizados en pesos colombianos (COP)
+- Enfoque ampliado a productos orgánicos manteniendo las fresas como base
