@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 import { products } from '../data/products';
 import { ProductCard } from '../components/ProductCard';
 import { siteConfig } from '../config/siteConfig';
-import { staggerReveal, floatingOrganic, setupScrollLayers } from '../animations/massByteAnimations';
+import { staggerReveal, setupScrollLayers } from '../animations/massByteAnimations';
 import { Sparkles, Leaf } from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -23,7 +23,6 @@ export function Home() {
   useEffect(() => {
     const ctx = gsap.context(() => {
       staggerReveal(heroRef.current.querySelectorAll('[data-reveal]'));
-      floatingOrganic(heroRef.current.querySelector('.hero-image'));
       setupScrollLayers(parallaxRef.current);
     }, heroRef);
 
@@ -80,8 +79,10 @@ export function Home() {
           <div className="absolute -inset-10 rounded-[32px] bg-gradient-to-br from-berry/40 via-lilac/30 to-neon/20 blur-3xl" data-depth="1" />
           <motion.div
             className="glass-panel gradient-border overflow-hidden relative hero-image"
+            initial={{ opacity: 0, scale: 0.96, y: 18 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            transition={{ duration: 0.9, ease: 'easeOut' }}
             whileHover={{ rotateX: -6, rotateY: 6, scale: 1.02 }}
-            transition={{ type: 'spring', stiffness: 120, damping: 18 }}
             data-depth="0.6"
           >
             <img

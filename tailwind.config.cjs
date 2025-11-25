@@ -6,14 +6,14 @@ module.exports = {
     extend: {
       colors: {
         night: '#0b0b11',
-        berry: '#7b1e3a',
-        berryDeep: '#4a0f21',
-        lilac: '#5d3a74',
-        blush: '#f2c6d8',
-        neon: '#ff3268',
+        berry: '#422155',
+        berryDeep: '#2a123b',
+        lilac: '#7a6ee6',
+        blush: '#d8cffc',
+        neon: '#b18bff',
       },
       boxShadow: {
-        glow: '0 10px 60px rgba(255, 50, 104, 0.25)',
+        glow: '0 10px 60px rgba(177, 139, 255, 0.28)',
         glass: '0 15px 80px rgba(0,0,0,0.35)',
       },
       backgroundImage: {
