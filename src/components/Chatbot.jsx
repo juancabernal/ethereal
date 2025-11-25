@@ -21,7 +21,7 @@ export function Chatbot() {
   };
 
   return (
-    <div className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 md:right-12 z-50 flex flex-col items-end gap-3">
+    <div className="fixed bottom-20 right-4 sm:bottom-24 sm:right-6 md:bottom-28 md:right-12 z-50 flex flex-col items-end gap-3">
       <AnimatePresence>
         {isOpen && (
           <motion.div
@@ -113,11 +113,11 @@ export function Chatbot() {
         onClick={toggleOpen}
         whileTap={{ scale: 0.95 }}
         whileHover={{ y: -2 }}
-        className="w-14 h-14 rounded-full bg-gradient-to-br from-berry to-neon shadow-glow text-night flex items-center justify-center relative overflow-hidden"
+        className="w-14 h-14 rounded-full bg-gradient-to-br from-berryDeep to-lilac shadow-glow text-night flex items-center justify-center relative overflow-hidden border border-white/10"
         aria-expanded={isOpen}
         aria-label="Abrir chatbot"
       >
-        <div className="absolute inset-0 bg-white/10 opacity-0 hover:opacity-20 transition" />
+        <div className="absolute inset-0 bg-white/10 opacity-0 transition hover:opacity-25" />
         <AnimatePresence mode="wait">
           {isOpen ? (
             <motion.div key="close" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
@@ -135,6 +135,7 @@ export function Chatbot() {
             </motion.div>
           )}
         </AnimatePresence>
+        <div className="absolute -inset-1 rounded-full bg-gradient-to-br from-white/5 via-transparent to-white/10 opacity-0 transition duration-300 hover:opacity-60" />
       </motion.button>
     </div>
   );

@@ -1,6 +1,7 @@
 import { Navbar } from './Navbar';
 import { Footer } from './Footer';
 import { FloatingWhatsApp } from '../components/FloatingWhatsApp';
+import { Chatbot } from '../components/Chatbot';
 
 export function Layout({ children }) {
   return (
@@ -8,6 +9,7 @@ export function Layout({ children }) {
       <Navbar />
       <main className="pt-24">{children}</main>
       <Footer />
+      <Chatbot />
       <FloatingWhatsApp />
     </div>
   );

@@ -8,12 +8,12 @@ module.exports = {
         night: '#0b0b11',
         berry: '#422155',
         berryDeep: '#2a123b',
-        lilac: '#7a6ee6',
+        lilac: '#5c4ed3',
         blush: '#d8cffc',
-        neon: '#b18bff',
+        neon: '#9b7df0',
       },
       boxShadow: {
-        glow: '0 10px 60px rgba(177, 139, 255, 0.28)',
+        glow: '0 10px 60px rgba(124, 101, 214, 0.35)',
         glass: '0 15px 80px rgba(0,0,0,0.35)',
       },
       backgroundImage: {
