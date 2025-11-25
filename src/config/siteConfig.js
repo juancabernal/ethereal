@@ -3,10 +3,10 @@ export const siteConfig = {
   brandName: 'ETHEREAL',
   slogan: 'Fresas orgánicas de lujo con experiencias sensoriales únicas.',
   colors: {
-    primary: '#a772ff',
-    secondary: '#7d6bdb',
+    primary: '#ff3268',
+    secondary: '#5d3a74',
     background: '#0b0b11',
-    accent: '#e7e1ff',
+    accent: '#f2c6d8',
   },
   logoText: 'ETHEREAL',
   socials: {

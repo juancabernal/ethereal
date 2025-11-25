@@ -6,14 +6,14 @@ module.exports = {
     extend: {
       colors: {
         night: '#0b0b11',
-        berry: '#3f2a60',
-        berryDeep: '#221532',
-        lilac: '#7d6bdb',
-        blush: '#e7e1ff',
-        neon: '#a772ff',
+        berry: '#7b1e3a',
+        berryDeep: '#4a0f21',
+        lilac: '#5d3a74',
+        blush: '#f2c6d8',
+        neon: '#ff3268',
       },
       boxShadow: {
-        glow: '0 10px 60px rgba(167, 114, 255, 0.25)',
+        glow: '0 10px 60px rgba(255, 50, 104, 0.25)',
         glass: '0 15px 80px rgba(0,0,0,0.35)',
       },
       backgroundImage: {
@@ -30,17 +30,14 @@ module.exports = {
           '50%': { transform: 'translateY(-12px)' },
         },
         pulseGlow: {
-          '0%, 100%': { boxShadow: '0 0 0 0 rgba(167, 114, 255, 0.35)' },
-          '50%': { boxShadow: '0 0 0 16px rgba(167, 114, 255, 0)' },
+          '0%, 100%': { boxShadow: '0 0 0 0 rgba(255, 50, 104, 0.35)' },
+          '50%': { boxShadow: '0 0 0 16px rgba(255, 50, 104, 0)' },
         },
         breathe: {
           '0%, 100%': { transform: 'scale(1)' },
           '50%': { transform: 'scale(1.02)' },
         },
       },
-    },
-    fontFamily: {
-      sans: ['"Inter Tight"', 'Space Grotesk', 'system-ui', '-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'sans-serif'],
     },
   },
   plugins: [require('@tailwindcss/typography')],
