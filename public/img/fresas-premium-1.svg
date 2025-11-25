@@ -1,0 +1,25 @@
+<svg width="900" height="600" viewBox="0 0 900 600" xmlns="http://www.w3.org/2000/svg" fill="none">
+  <rect width="900" height="600" rx="32" fill="url(#bg)"/>
+  <g filter="url(#shadow)">
+    <ellipse cx="360" cy="330" rx="160" ry="170" fill="#f04d6a"/>
+    <ellipse cx="470" cy="310" rx="150" ry="150" fill="#d92b4f"/>
+    <rect x="330" y="150" width="110" height="80" rx="20" fill="#2e9f55" transform="rotate(-8 330 150)"/>
+    <rect x="430" y="150" width="100" height="80" rx="20" fill="#2e9f55" transform="rotate(10 430 150)"/>
+    <circle cx="360" cy="270" r="12" fill="#ffe6ef"/>
+    <circle cx="420" cy="350" r="12" fill="#ffe6ef"/>
+    <circle cx="500" cy="300" r="10" fill="#ffe6ef"/>
+    <circle cx="540" cy="380" r="11" fill="#ffe6ef"/>
+    <circle cx="430" cy="430" r="12" fill="#ffe6ef"/>
+    <circle cx="520" cy="430" r="10" fill="#ffe6ef"/>
+  </g>
+  <text x="80" y="520" fill="#ffe7b3" font-size="34" font-family="'Inter', sans-serif" font-weight="700">Selección premium 1 kg · calibrado uniforme para repostería y coctelería.</text>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="900" y2="600" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#12001c"/>
+      <stop offset="1" stop-color="#1d0f3b"/>
+    </linearGradient>
+    <filter id="shadow" x="180" y="90" width="520" height="500" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="18" stdDeviation="22" flood-color="#000" flood-opacity="0.35"/>
+    </filter>
+  </defs>
+</svg>

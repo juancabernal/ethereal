@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { siteConfig } from '../config/siteConfig';
+import { globalConfig } from '../config/globalConfig';
 import { Menu, X, Sparkles } from 'lucide-react';
 
 const navItems = [
@@ -26,6 +26,8 @@ export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
 
+  const whatsappNumber = (globalConfig.whatsapp || '').replace(/[^\d]/g, '');
+
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12);
     window.addEventListener('scroll', onScroll);
@@ -44,7 +46,7 @@ export function Navbar() {
             <Sparkles className="w-5 h-5 text-blush" />
             <span className="glare" />
           </div>
-          <span className="text-blush">{siteConfig.logoText}</span>
+          <span className="text-blush">{globalConfig.nombre_empresa}</span>
         </Link>
 
         <div className="hidden md:flex items-center gap-2">
@@ -58,14 +60,16 @@ export function Navbar() {
               )}
             </NavLink>
           ))}
-          <a
-            href={`https://wa.me/${siteConfig.whatsappNumber.replace(/[^\d]/g, '')}`}
-            target="_blank"
-            rel="noreferrer"
-            className="neon-button text-sm"
-          >
-            Pedir ahora
-          </a>
+          {globalConfig.whatsapp && (
+            <a
+              href={`https://wa.me/${whatsappNumber}`}
+              target="_blank"
+              rel="noreferrer"
+              className="neon-button text-sm"
+            >
+              Pedir ahora
+            </a>
+          )}
         </div>
 
         <button
@@ -95,14 +99,16 @@ export function Navbar() {
                 {item.label}
               </NavLink>
             ))}
-            <a
-              href={`https://wa.me/${siteConfig.whatsappNumber.replace(/[^\d]/g, '')}`}
-              target="_blank"
-              rel="noreferrer"
-              className="neon-button inline-flex w-full justify-center"
-            >
-              Pedir ahora
-            </a>
+            {globalConfig.whatsapp && (
+              <a
+                href={`https://wa.me/${whatsappNumber}`}
+                target="_blank"
+                rel="noreferrer"
+                className="neon-button inline-flex w-full justify-center"
+              >
+                Pedir ahora
+              </a>
+            )}
           </motion.div>
         )}
       </AnimatePresence>

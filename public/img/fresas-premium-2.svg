@@ -1,0 +1,23 @@
+<svg width="900" height="600" viewBox="0 0 900 600" xmlns="http://www.w3.org/2000/svg" fill="none">
+  <rect width="900" height="600" rx="32" fill="#140020"/>
+  <g filter="url(#shadow)">
+    <ellipse cx="300" cy="330" rx="120" ry="150" fill="#d92b4f"/>
+    <ellipse cx="420" cy="330" rx="130" ry="160" fill="#f15f7c"/>
+    <ellipse cx="520" cy="340" rx="90" ry="130" fill="#d92b4f"/>
+    <rect x="270" y="170" width="80" height="60" rx="16" fill="#3bbf6b" transform="rotate(-5 270 170)"/>
+    <rect x="350" y="160" width="90" height="60" rx="16" fill="#3bbf6b" transform="rotate(6 350 160)"/>
+    <rect x="440" y="180" width="70" height="50" rx="14" fill="#3bbf6b" transform="rotate(10 440 180)"/>
+    <circle cx="320" cy="300" r="10" fill="#ffe6ef"/>
+    <circle cx="380" cy="380" r="11" fill="#ffe6ef"/>
+    <circle cx="470" cy="300" r="10" fill="#ffe6ef"/>
+    <circle cx="520" cy="380" r="9" fill="#ffe6ef"/>
+    <circle cx="420" cy="440" r="10" fill="#ffe6ef"/>
+  </g>
+  <text x="540" y="220" fill="#ffe7b3" font-size="36" font-family="'Inter', sans-serif" font-weight="700">Fresas curadas</text>
+  <text x="540" y="270" fill="#f7e9ff" font-size="24" font-family="'Inter', sans-serif">Edición premium para regalos y repostería.</text>
+  <defs>
+    <filter id="shadow" x="160" y="110" width="520" height="480" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="18" stdDeviation="22" flood-color="#000" flood-opacity="0.35"/>
+    </filter>
+  </defs>
+</svg>

@@ -1,0 +1,26 @@
+<svg width="900" height="600" viewBox="0 0 900 600" xmlns="http://www.w3.org/2000/svg" fill="none">
+  <rect width="900" height="600" rx="32" fill="#12001c"/>
+  <g filter="url(#shadow)">
+    <rect x="320" y="140" width="220" height="300" rx="46" fill="#f8f2ff"/>
+    <rect x="340" y="170" width="180" height="240" rx="34" fill="#c71d45"/>
+    <rect x="350" y="180" width="160" height="220" rx="28" fill="url(#jam)"/>
+    <rect x="320" y="120" width="220" height="34" rx="14" fill="#ffd18a"/>
+    <rect x="340" y="106" width="180" height="26" rx="12" fill="#ffbe5c"/>
+    <rect x="340" y="134" width="180" height="12" rx="6" fill="#f7e2bc"/>
+    <circle cx="380" cy="220" r="9" fill="#fff0f5"/>
+    <circle cx="430" cy="250" r="8" fill="#fff0f5"/>
+    <circle cx="480" cy="230" r="10" fill="#fff0f5"/>
+    <circle cx="430" cy="310" r="9" fill="#fff0f5"/>
+    <circle cx="470" cy="350" r="8" fill="#fff0f5"/>
+  </g>
+  <text x="120" y="520" fill="#f7e9ff" font-size="32" font-family="'Inter', sans-serif" font-weight="700">Lotes pequeños con fruta real · sin colorantes</text>
+  <defs>
+    <linearGradient id="jam" x1="350" y1="180" x2="510" y2="400" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#c71d45"/>
+      <stop offset="1" stop-color="#8f0f30"/>
+    </linearGradient>
+    <filter id="shadow" x="250" y="80" width="400" height="400" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="18" stdDeviation="22" flood-color="#000" flood-opacity="0.35"/>
+    </filter>
+  </defs>
+</svg>

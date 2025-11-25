@@ -3,10 +3,11 @@ import { Link } from 'react-router-dom';
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { MousePointerClick } from 'lucide-react';
-import { siteConfig } from '../config/siteConfig';
+import { globalConfig } from '../config/globalConfig';
 
 export function ProductCard({ product }) {
   const cardRef = useRef(null);
+  const whatsappNumber = (globalConfig.whatsapp || '').replace(/[^\d]/g, '');
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -56,14 +57,16 @@ export function ProductCard({ product }) {
         >
           Ver más
         </Link>
-        <a
-          href={`https://wa.me/${siteConfig.whatsappNumber.replace(/[^\d]/g, '')}?text=Hola,%20quiero%20comprar%201%20unidad%20de%20${encodeURIComponent(product.name)}%20en%20ETHEREAL.`}
-          target="_blank"
-          rel="noreferrer"
-          className="glass-panel border-white/10 px-4 py-3 rounded-2xl text-sm text-blush/80"
-        >
-          WhatsApp
-        </a>
+        {globalConfig.whatsapp && (
+          <a
+            href={`https://wa.me/${whatsappNumber}?text=Hola,%20quiero%20comprar%201%20unidad%20de%20${encodeURIComponent(product.name)}%20en%20${encodeURIComponent(globalConfig.nombre_empresa)}.`}
+            target="_blank"
+            rel="noreferrer"
+            className="glass-panel border-white/10 px-4 py-3 rounded-2xl text-sm text-blush/80"
+          >
+            WhatsApp
+          </a>
+        )}
       </div>
     </motion.div>
   );

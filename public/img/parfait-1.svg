@@ -1,0 +1,22 @@
+<svg width="900" height="600" viewBox="0 0 900 600" xmlns="http://www.w3.org/2000/svg" fill="none">
+  <rect width="900" height="600" rx="32" fill="#0f0b1c"/>
+  <g filter="url(#shadow)">
+    <rect x="340" y="100" width="200" height="360" rx="40" fill="#f8f2ff"/>
+    <path d="M360 140h160v60c0 22-18 40-40 40H400c-22 0-40-18-40-40v-60z" fill="#ff6f9f"/>
+    <path d="M360 240h160v60c0 22-18 40-40 40H400c-22 0-40-18-40-40v-60z" fill="#ffe8b3"/>
+    <path d="M360 340h160v60c0 22-18 40-40 40H400c-22 0-40-18-40-40v-60z" fill="#f7d8ff"/>
+    <circle cx="400" cy="210" r="12" fill="#d92b4f"/>
+    <circle cx="440" cy="180" r="10" fill="#d92b4f"/>
+    <circle cx="480" cy="210" r="12" fill="#d92b4f"/>
+    <circle cx="420" cy="260" r="8" fill="#ff9fbf"/>
+    <circle cx="470" cy="260" r="9" fill="#ff9fbf"/>
+    <circle cx="430" cy="360" r="10" fill="#6f3ba2"/>
+    <circle cx="470" cy="360" r="9" fill="#6f3ba2"/>
+  </g>
+  <text x="150" y="520" fill="#f7e9ff" font-size="32" font-family="'Inter', sans-serif" font-weight="700">Parfait de fresa · yogurt cremoso · granola artesanal</text>
+  <defs>
+    <filter id="shadow" x="280" y="60" width="340" height="420" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="18" stdDeviation="22" flood-color="#000" flood-opacity="0.35"/>
+    </filter>
+  </defs>
+</svg>

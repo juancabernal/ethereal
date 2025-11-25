@@ -1,0 +1,19 @@
+<svg width="900" height="600" viewBox="0 0 900 600" xmlns="http://www.w3.org/2000/svg" fill="none">
+  <rect width="900" height="600" rx="32" fill="#0b1024"/>
+  <g filter="url(#shadow)">
+    <circle cx="320" cy="320" r="90" fill="#3b5cc4"/>
+    <circle cx="400" cy="280" r="100" fill="#4c6fe0"/>
+    <circle cx="470" cy="340" r="95" fill="#3450a8"/>
+    <circle cx="370" cy="360" r="70" fill="#5f7de6"/>
+    <circle cx="450" cy="260" r="70" fill="#6e89eb"/>
+    <rect x="340" y="170" width="80" height="40" rx="14" fill="#4caf50" transform="rotate(-8 340 170)"/>
+    <rect x="410" y="180" width="90" height="34" rx="12" fill="#4caf50" transform="rotate(10 410 180)"/>
+  </g>
+  <text x="520" y="280" fill="#eef3ff" font-size="36" font-family="'Inter', sans-serif" font-weight="700">Arándanos orgánicos</text>
+  <text x="520" y="330" fill="#cfd9ff" font-size="24" font-family="'Inter', sans-serif">250 g · antioxidantes y fibra ligera</text>
+  <defs>
+    <filter id="shadow" x="210" y="140" width="420" height="380" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="18" stdDeviation="22" flood-color="#000" flood-opacity="0.35"/>
+    </filter>
+  </defs>
+</svg>
