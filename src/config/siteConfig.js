@@ -1,5 +1,5 @@
 export const siteConfig = {
-  whatsappNumber: '+529991234567',
+  whatsappNumber: '+573226374266',
   brandName: 'ETHEREAL',
   slogan: 'Fresas orgánicas de lujo con experiencias sensoriales únicas.',
   colors: {

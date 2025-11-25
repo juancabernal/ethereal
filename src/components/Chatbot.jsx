@@ -21,7 +21,7 @@ export function Chatbot() {
   };
 
   return (
-    <div className="fixed bottom-20 right-4 sm:bottom-24 sm:right-6 md:bottom-28 md:right-12 z-50 flex flex-col items-end gap-3">
+    <div className="fixed bottom-20 right-4 sm:bottom-24 sm:right-6 md:bottom-6 md:right-20 lg:right-24 z-50 flex flex-col items-end gap-3">
       <AnimatePresence>
         {isOpen && (
           <motion.div
@@ -30,7 +30,7 @@ export function Chatbot() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.98 }}
             transition={{ duration: 0.35, ease: 'easeOut' }}
-            className="w-[320px] sm:w-[360px] rounded-3xl glass-panel border border-white/10 overflow-hidden shadow-glow bg-black/70 backdrop-blur-xl"
+            className="w-[320px] sm:w-[360px] rounded-3xl border border-white/10 overflow-hidden shadow-glow bg-night text-white relative z-50"
           >
             <div className="flex items-center justify-between px-4 py-3 bg-gradient-to-r from-berry/70 via-lilac/60 to-neon/60 border-b border-white/10">
               <div className="flex items-center gap-3">
@@ -38,8 +38,8 @@ export function Chatbot() {
                   <Bot className="w-5 h-5 text-blush" />
                 </div>
                 <div>
-                  <p className="text-sm text-blush/70 uppercase tracking-[0.2em]">Asistente</p>
-                  <p className="text-blush font-semibold">ETHEREAL Bot</p>
+                  <p className="text-sm text-white/70 uppercase tracking-[0.2em]">Asistente</p>
+                  <p className="text-white font-semibold">ETHEREAL Bot</p>
                 </div>
               </div>
               <button
@@ -62,11 +62,11 @@ export function Chatbot() {
                   className={`flex ${message.role === 'user' ? 'justify-end' : 'justify-start'}`}
                 >
                   <div
-                    className={`max-w-[80%] rounded-2xl px-4 py-3 leading-relaxed backdrop-blur-sm border border-white/10 ${
-                      message.role === 'user'
-                        ? 'bg-gradient-to-br from-neon/80 to-lilac/80 text-night shadow-glow'
-                        : 'bg-white/10 text-blush'
-                    }`}
+                    className={`max-w-[80%] rounded-2xl px-4 py-3 leading-relaxed border border-white/10 ${
+                          message.role === 'user'
+                            ? 'bg-gradient-to-br from-neon to-lilac text-white shadow-glow'
+                              : 'bg-white text-night'
+                        }`}
                   >
                     {message.text}
                   </div>
@@ -79,20 +79,20 @@ export function Chatbot() {
                   animate={{ opacity: 1, y: 0 }}
                   className="flex justify-start"
                 >
-                  <div className="px-3 py-2 rounded-xl bg-white/5 border border-white/10 text-blush/70 text-xs">
+                  <div className="px-3 py-2 rounded-xl bg-white text-night border border-white/10 text-xs">
                     Escribiendo...
                   </div>
                 </motion.div>
               )}
             </div>
 
-            <form onSubmit={handleSubmit} className="border-t border-white/10 px-4 py-3 bg-black/50">
+            <form onSubmit={handleSubmit} className="border-t border-white/10 px-4 py-3 bg-night">
               <div className="flex items-center gap-2">
                 <input
                   value={input}
                   onChange={(e) => setInput(e.target.value)}
                   placeholder="Pregúntanos sobre precios, recetas..."
-                  className="flex-1 bg-white/5 border border-white/10 rounded-full px-4 py-2.5 text-sm text-blush placeholder:text-blush/50 focus:outline-none focus:border-neon/50"
+                  className="flex-1 bg-[#0f0f13] border border-white/10 rounded-full px-4 py-2.5 text-sm text-white placeholder:text-white/60 focus:outline-none focus:border-neon/50"
                 />
                 <motion.button
                   type="submit"
@@ -131,7 +131,7 @@ export function Chatbot() {
               exit={{ opacity: 0 }}
               transition={{ duration: 0.25 }}
             >
-              <MessageCircle className="w-6 h-6" />
+              <Bot className="w-6 h-6 text-night" />
             </motion.div>
           )}
         </AnimatePresence>
