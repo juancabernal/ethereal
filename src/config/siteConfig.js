@@ -18,6 +18,6 @@ export const siteConfig = {
   company: {
     name: 'ETHEREAL',
     address: 'La Unión, Antioquia – Colombia',
-    email: 'hola@etherealorganic.com',
+    email: 'etherealorganics@gmail.com',
   },
 };
