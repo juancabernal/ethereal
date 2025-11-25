@@ -123,3 +123,11 @@ Se reemplazó la información por defecto con los datos reales de ETHEREAL: ahor
 - Beneficios de frutas y propiedades antioxidantes integradas en las respuestas.
 - FAQ extensa y respuestas naturales apoyadas en `globalConfig` y la nueva `knowledgeBase`.
 - Capacidad de sugerencias, comprensión flexible del lenguaje y manejo de preguntas abiertas.
+
+## 🤖 Chatbot Avanzado con IA Híbrida (WebLLM + Contexto Local)
+
+- Integración 100% en frontend con **@mlc-ai/web-llm** usando WebGPU del navegador; no necesita claves ni backend.
+- Modelos configurados: **Phi-3-mini-instruct** como principal y **Phi-2** como fallback automático cuando el dispositivo no soporta WebGPU o falle la carga.
+- Arquitectura híbrida: primero consulta el contexto local (`knowledgeBase`) y, si hace falta enriquecer la respuesta, invoca WebLLM manteniendo el tono cercano y juvenil.
+- Detección avanzada de intención para temas de ubicación, envíos, pagos, precios, empresa, nutrición, recetas, beneficios, políticas, contacto y catálogo.
+- Fallback automático a WhatsApp (`https://wa.me/573226374266`) cuando la IA no responde o el dispositivo no soporta el modelo.

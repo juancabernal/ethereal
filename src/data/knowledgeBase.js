@@ -5,67 +5,85 @@ export const knowledgeBase = {
     founders: 'Emprendimiento de dos jóvenes de 20 años',
     location: 'La Unión, Antioquia – Colombia',
     philosophy:
-      'Inspirados en lo etéreo: delicado, natural y casi celestial. Productos orgánicos reales con prácticas saludables y calidad superior.',
-    sourcing:
-      'Fresas orgánicas adquiridas a emprendedores locales aliados, aún sin certificaciones pero con trazabilidad y trabajo responsable.',
+      'Eterno, ligero y natural. Buscamos que cada fruta se sienta limpia, real y cuidada como si viniera directo de la huerta.',
+    mission:
+      'Acercar berries orgánicos y productos derivados de alta frescura con una experiencia humana, cercana y hecha a medida.',
+    values: ['Frescura', 'Transparencia', 'Trato humano', 'Agilidad', 'Cuidado con el origen'],
     contact: {
       phone: '+57 3226374266',
       whatsappLink: 'https://wa.me/573226374266',
-      availability: 'Atención 24/7; respuestas pueden tardar un poco pero siempre te acompañamos.'
+      email: 'hola@ethereal.com.co',
+      instagram: 'https://www.instagram.com/ethereal.berrie',
+      availability: 'Atención 24/7; respondemos en menos de 1 hora en horario 8:00 a. m. – 6:00 p. m. (GMT-5).'
     },
-    highlights: [
-      'Catálogo en evolución centrado en fresas como eje principal.',
-      'Productos orgánicos reales sin certificaciones aún, priorizando calidad y prácticas saludables.',
-      'Coordinación cercana y humana: todo se negocia directamente por WhatsApp para personalizar el pedido.'
-    ]
+  },
+  location: {
+    city: 'La Unión, Antioquia',
+    reference: 'Zona de clima frío y suelos volcánicos suaves, ideal para berries dulces y firmes.',
+    pickup: 'Puntos de entrega flexibles en el parque principal de La Unión previa coordinación por WhatsApp.',
+  },
+  operations: {
+    hours: 'Lunes a sábado: 8:00 a. m. a 6:00 p. m. | Domingos: entregas programadas.',
+    serviceStyle: 'Coordinamos cada pedido de manera personalizada para asegurar frescura y trazabilidad.',
   },
   shipping: {
-    sameDay: 'En La Unión entregamos el mismo día.',
-    nearby: 'Municipios cercanos reciben entregas rápidas coordinadas en el día.',
-    national: 'Otras zonas de Colombia: menos de una semana según ruta y clima.',
-    notes:
-      'Para envíos lejanos puede aplicarse un pedido mínimo; siempre se confirma y negocia por WhatsApp.',
-    flexibility: 'Cobertura nacional con ajustes según disponibilidad y logística local.'
+    sameDay: 'En La Unión entregamos el mismo día con cadena de frío básica.',
+    nearby: 'Municipios cercanos (Rionegro, La Ceja, Marinilla): rutas rápidas coordinadas en el día.',
+    national: 'Resto de Colombia: menos de una semana según clima y disponibilidad aérea/terrestre.',
+    packaging: 'Usamos contenedores ventilados y frío controlado para evitar humedad excesiva.',
+    notes: 'Para zonas lejanas puede aplicar pedido mínimo; todo se confirma y ajusta en WhatsApp.',
   },
   payments: {
-    accepted: ['Efectivo', 'Transferencia', 'Nequi'],
-    notAccepted: ['Tarjetas', 'PSE', 'Daviplata', 'Pagos digitales integrados'],
-    conditional:
-      'Pago contraentrega solo es posible si se acuerda previamente por WhatsApp. No hay cobro con datáfono/terminal por ahora.'
+    accepted: ['Efectivo', 'Transferencia bancaria', 'Nequi'],
+    notAccepted: ['Tarjetas', 'PSE', 'Daviplata', 'Pasarelas en línea'],
+    conditional: 'Pago contraentrega solo si se acuerda por WhatsApp; aún sin datáfono.',
+    billing: 'Podemos compartir comprobante y desglose de costos por chat.',
+  },
+  policies: {
+    freshness: 'Solo trabajamos con fruta recién cosechada; si algo llega golpeado lo reemplazamos o devolvemos.',
+    returns: 'Revisión en entrega. Reporta novedades en las primeras 6 horas para gestionar reemplazo.',
+    sustainability: 'Reducimos plásticos y priorizamos empaques reciclables o reusables.',
+    privacy: 'Datos solo para coordinar pedidos; no usamos terceros ni publicidad invasiva.',
+  },
+  promotions: {
+    bundles: 'Descuentos por volumen en cajas de 1 kg o combos mixtos de berries.',
+    gifts: 'Cajas premium personalizadas con notas, listones y refrigeración para regalo.',
+    loyalty: 'Clientes frecuentes reciben mejoras de precio y recetas exclusivas.',
   },
   products: [
     {
       id: 'fresas',
       name: 'Fresas orgánicas',
-      aliases: ['fresa', 'fresas', 'frutilla', 'frutillas', 'berry roja', 'berries rojas'],
+      aliases: ['fresa', 'fresas', 'frutilla', 'frutillas', 'berry roja'],
       description:
-        'Fresas orgánicas locales como producto insignia: dulces, frescas y con aroma floral. Base de smoothies, bowls, postres y cajas de regalo.',
+        'Fresas orgánicas de aroma floral y dulzor balanceado, cosechadas en altura para textura firme.',
+      highlights: ['Ideales para bowls, smoothies y cajas de regalo', 'Perfil bajo en calorías', 'Frescura certificada por trazabilidad propia'],
+      priceNotes: 'Caja premium 1 kg referencia $24.000 COP; ajustamos por volumen o personalización.',
       nutrition: {
         serving: '100 g',
         energy: '32 kcal',
-        water: '90% agua',
         carbs: '7.7 g de carbohidratos',
-        sugars: '4.9 g de azúcares naturales',
+        sugars: '4.9 g azúcares naturales',
         fiber: '2 g de fibra',
         protein: '0.7 g de proteína',
-        fat: '0.3 g de grasa total',
-        vitamins: ['Vitamina C: 58.8 mg (98% VD)', 'Folato (B9): 24 mcg'],
+        vitamins: ['Vitamina C: 58.8 mg', 'Folato (B9): 24 mcg'],
         minerals: ['Potasio: 153 mg', 'Manganeso: 0.386 mg'],
-        antioxidants: ['Antocianinas', 'Quercetina', 'Ácido elágico']
+        antioxidants: ['Antocianinas', 'Quercetina', 'Ácido elágico'],
       },
       benefits: [
-        'Mejoran la salud cardiovascular y reducen marcadores de inflamación.',
-        'Apoyan el control de azúcar en sangre por su fibra y bajo índice glicémico.',
-        'Favorecen la síntesis de colágeno y la luminosidad de la piel gracias a su vitamina C y antioxidantes.',
-        'Refuerzan el sistema inmune y la digestión liviana.'
-      ]
+        'Soporte cardiovascular y reducción de inflamación (Harvard School of Public Health).',
+        'Índice glicémico bajo que ayuda al control de azúcar en sangre (USDA).',
+        'Vitamina C para síntesis de colágeno y salud de la piel.',
+        'Aporte de fibra para saciedad y digestión ligera.',
+      ],
     },
     {
       id: 'arandanos',
       name: 'Arándanos orgánicos',
-      aliases: ['arándano', 'arándanos', 'blueberries', 'moras azules', 'berry azul'],
-      description:
-        'Arándanos orgánicos con alto poder antioxidante y perfil dulce-ácido, ideales para snacks, bowls y repostería ligera.',
+      aliases: ['arándano', 'arándanos', 'blueberries', 'mora azul', 'berry azul'],
+      description: 'Arándanos dulces-ácidos con alto poder antioxidante, perfectos para snacks o repostería ligera.',
+      highlights: ['Textura crujiente', 'Buena vida útil en frío', 'Compatibles con dietas bajas en sodio'],
+      priceNotes: 'Presentaciones flexibles desde 125 g según cosecha.',
       nutrition: {
         serving: '100 g',
         energy: '57 kcal',
@@ -73,164 +91,189 @@ export const knowledgeBase = {
         sugars: '10 g de azúcares',
         fiber: '2.4 g de fibra',
         protein: '0.7 g de proteína',
-        fat: '0.3 g de grasa total',
         vitamins: ['Vitamina C: 9.7 mg', 'Vitamina K: 19.3 mcg'],
-        antioxidants: ['Antocianinas (muy altas)', 'Resveratrol']
+        minerals: ['Manganeso'],
+        antioxidants: ['Antocianinas', 'Resveratrol'],
       },
       benefits: [
-        'Protección neuronal y soporte de memoria.',
-        'Control antioxidante frente a radicales libres.',
-        'Aporte para salud ocular y cardiovascular.',
-        'Ayuda en regulación de glucosa con fibra moderada.'
-      ]
+        'Protección neuronal y memoria según estudios de la Universidad de Harvard.',
+        'Apoyo a salud ocular y cardiovascular por su alta capacidad antioxidante.',
+        'Fibra moderada que ayuda a saciedad y regulación de glucosa.',
+      ],
     },
     {
       id: 'zarzamoras',
       name: 'Zarzamoras orgánicas',
-      aliases: ['zarzamora', 'mora', 'moras', 'blackberries', 'berries negras'],
-      description:
-        'Zarzamoras orgánicas de sabor intenso y notas florales. Excelentes para bowls, salsas, mermeladas y toppings.',
+      aliases: ['zarzamora', 'moras negras', 'blackberries', 'berry negra'],
+      description: 'Zarzamoras de sabor intenso y notas florales, perfectas para salsas, toppings y bowls.',
+      highlights: ['Altísima fibra', 'Color profundo por polifenoles', 'Excelente para mermeladas artesanales'],
+      priceNotes: 'Disponibilidad variable; confirmamos cada semana.',
       nutrition: {
         serving: '100 g',
         energy: '43 kcal',
-        fiber: '5.3 g de fibra',
+        carbs: '9.6 g de carbohidratos',
         sugars: '4.9 g de azúcares',
+        fiber: '5.3 g de fibra',
+        protein: '1.4 g de proteína',
         vitamins: ['Vitamina C: 21 mg', 'Vitamina K: 19.8 mcg'],
         minerals: ['Manganeso elevado'],
-        antioxidants: ['Antocianinas', 'Polifenoles antiinflamatorios']
+        antioxidants: ['Antocianinas', 'Polifenoles antiinflamatorios'],
       },
       benefits: [
-        'Salud digestiva gracias a su alta fibra.',
-        'Soporte a la salud ósea y metabolismo por su manganeso.',
+        'Fibra alta para salud digestiva (Mayo Clinic destaca >5 g/100 g).',
+        'Apoyo al metabolismo óseo por manganeso y vitamina K.',
         'Efecto antiinflamatorio y regulación de azúcar en sangre.',
-        'Aportan saciedad con pocas calorías.'
-      ]
-    }
+      ],
+    },
+    {
+      id: 'mermeladas',
+      name: 'Mermeladas artesanales de berries',
+      aliases: ['mermelada', 'untables', 'conservas'],
+      description: 'Mermeladas con fruta orgánica, cocción lenta y endulzantes naturales moderados.',
+      highlights: ['Sin conservantes', 'Textura rústica con trozos de fruta', 'Ideales para desayunos y repostería'],
+      priceNotes: 'Frascos de 250 g y 500 g; descuentos por packs.',
+      nutrition: {
+        serving: '20 g',
+        energy: '40-50 kcal según fruta',
+        sugars: 'Azúcares naturales de la fruta más panela',
+      },
+      benefits: [
+        'Aporte de antioxidantes concentrados de las berries usadas.',
+        'Alternativa natural a untables con conservantes industriales.',
+      ],
+    },
+    {
+      id: 'postres',
+      name: 'Postres fríos con berries',
+      aliases: ['postre', 'cheesecake', 'parfait', 'crumble'],
+      description: 'Ediciones limitadas de postres fríos y horneados con fruta fresca del día.',
+      highlights: ['Recetas de temporada', 'Opciones reducidas en azúcar', 'Presentaciones individuales y familiares'],
+      priceNotes: 'Consulta disponibilidad semanal; producción pequeña para mantener frescura.',
+      benefits: ['Sabor casero con fruta real, sin colorantes artificiales.'],
+    },
+  ],
+  nutritionHighlights: [
+    'Las berries son ricas en vitamina C, antocianinas y fibra; combinan baja carga glicémica con alto poder antioxidante.',
+    'Datos nutricionales basados en USDA FoodData Central y guías de Harvard T.H. Chan School of Public Health.',
   ],
   recipes: [
     {
-      name: 'Parfait de fresa',
+      name: 'Parfait de fresa cremoso',
       time: '10 minutos',
       servings: '2 porciones',
-      ingredients: ['1 taza de fresas en láminas', '1 taza de yogurt natural', '1/2 taza de granola', '1 cda de miel', 'Hojas de menta'],
-      preparation:
-        'Alterna capas de yogurt, fresas y granola en vasos fríos. Termina con miel y menta. Servir de inmediato.',
-      tags: ['parfait', 'postre', 'rápido']
+      ingredients: ['1 taza de fresas en láminas', '1 taza de yogurt natural', '1/2 taza de granola', '1 cda de miel cruda', 'Hojas de menta'],
+      preparation: 'Alterna capas de yogurt, fresas y granola en vasos fríos. Termina con miel y menta. Servir de inmediato.',
+      tags: ['parfait', 'postre', 'rápido'],
     },
     {
-      name: 'Batido antioxidante',
+      name: 'Batido antioxidante de frutos rojos',
       time: '7 minutos',
       servings: '2 porciones',
       ingredients: ['1/2 taza de fresas', '1/2 taza de arándanos', '1/2 banano', '1 taza de leche vegetal', 'Hielo al gusto'],
-      preparation:
-        'Lleva todos los ingredientes a la licuadora y procesa hasta obtener textura cremosa. Endulza al gusto.',
-      tags: ['batido', 'antioxidante', 'bebida']
+      preparation: 'Lleva todo a la licuadora y procesa hasta textura cremosa. Endulza al gusto.',
+      tags: ['batido', 'antioxidante', 'bebida'],
     },
     {
       name: 'Smoothie bowl de frutos rojos',
       time: '8 minutos',
       servings: '1 porción grande',
       ingredients: ['3/4 taza de fresas congeladas', '1/2 taza de zarzamoras', '1/2 banano', '1/2 taza de yogurt griego', 'Toppings: granola, coco, semillas'],
-      preparation:
-        'Licúa las frutas con el yogurt hasta lograr un helado espeso. Sirve en bowl y añade toppings.',
-      tags: ['smoothie bowl', 'desayuno']
+      preparation: 'Licúa frutas con yogurt hasta helado espeso. Sirve en bowl y añade toppings.',
+      tags: ['smoothie bowl', 'desayuno'],
     },
     {
       name: 'Mermelada casera de fresa',
       time: '40 minutos',
-      servings: '1 frasco (250g)',
+      servings: '1 frasco (250 g)',
       ingredients: ['500 g de fresas picadas', '150 g de azúcar o panela', '1 cda de jugo de limón'],
-      preparation:
-        'Cocina las fresas con el azúcar a fuego medio, removiendo. Añade limón y cocina hasta espesar. Envasar en frasco esterilizado.',
-      tags: ['mermelada', 'untables']
+      preparation: 'Cocina fresas con azúcar a fuego medio, removiendo. Añade limón y cocina hasta espesar. Envasar en frasco esterilizado.',
+      tags: ['mermelada', 'untables'],
     },
     {
       name: 'Salsa de frutos rojos para postres',
       time: '15 minutos',
       servings: '200 ml',
       ingredients: ['1 taza de fresas', '1/2 taza de arándanos', '2 cdas de azúcar', '1 cda de limón'],
-      preparation:
-        'Cocina las frutas con el azúcar por 10 minutos, presionando suavemente. Finaliza con limón y deja entibiar antes de usar.',
-      tags: ['salsa', 'postres']
+      preparation: 'Cocina las frutas con azúcar 10 minutos, presionando suavemente. Finaliza con limón y deja entibiar.',
+      tags: ['salsa', 'postres'],
     },
     {
       name: 'Tarta rústica de frutos rojos',
       time: '1 hora',
       servings: '6 porciones',
       ingredients: ['1 lámina de masa quebrada', '2 tazas de fresas en mitades', '1 taza de zarzamoras', '3 cdas de azúcar', '1 cda de maicena'],
-      preparation:
-        'Mezcla frutas con azúcar y maicena. Coloca en el centro de la masa, dobla bordes y hornea a 190°C por 35-40 minutos.',
-      tags: ['tarta', 'horneado']
+      preparation: 'Mezcla frutas con azúcar y maicena. Coloca en el centro de la masa, dobla bordes y hornea a 190°C por 35-40 minutos.',
+      tags: ['tarta', 'horneado'],
     },
     {
-      name: 'Avena fría con frutas orgánicas',
+      name: 'Avena fría con frutos orgánicos',
       time: '5 minutos + reposo',
       servings: '2 porciones',
       ingredients: ['1 taza de avena en hojuelas', '1.5 tazas de leche o bebida vegetal', '1 taza de fresas picadas', '1/2 taza de arándanos', '1 cda de chía'],
-      preparation:
-        'Mezcla avena, leche y chía. Reposa en nevera 4 horas. Añade las frutas al servir.',
-      tags: ['avena', 'desayuno']
+      preparation: 'Mezcla avena, leche y chía. Reposa en nevera 4 horas. Añade frutas al servir.',
+      tags: ['avena', 'desayuno'],
     },
     {
       name: 'Ensalada dulce de frutos rojos',
       time: '12 minutos',
       servings: '3 porciones',
       ingredients: ['1 taza de fresas', '1 taza de zarzamoras', '1/2 taza de uvas verdes', 'Hojas de hierbabuena', 'Miel o limón al gusto'],
-      preparation:
-        'Combina las frutas en un bowl, añade hierbabuena y un toque de miel o limón. Servir fría.',
-      tags: ['ensalada', 'ligero']
+      preparation: 'Combina frutas en un bowl, añade hierbabuena y un toque de miel o limón. Servir fría.',
+      tags: ['ensalada', 'ligero'],
     },
     {
       name: 'Helado casero de frutos orgánicos',
       time: '15 minutos + congelación',
       servings: '4 porciones',
       ingredients: ['2 tazas de fresas congeladas', '1 taza de arándanos congelados', '3 cdas de yogurt griego', '2 cdas de miel'],
-      preparation:
-        'Procesa las frutas congeladas con yogurt y miel hasta textura de helado suave. Congela 1 hora para mayor firmeza.',
-      tags: ['helado', 'postre']
+      preparation: 'Procesa frutas congeladas con yogurt y miel hasta textura de helado suave. Congela 1 hora para mayor firmeza.',
+      tags: ['helado', 'postre'],
     },
     {
       name: 'Agua infusionada detox',
       time: '5 minutos + reposo',
       servings: '1 jarra (1 litro)',
       ingredients: ['6 fresas en láminas', '1/4 taza de arándanos', 'Rodajas de limón', 'Hojas de menta', 'Agua fría'],
-      preparation:
-        'Agrega frutas y menta a una jarra con agua fría. Reposa en nevera 1 hora para infusionar.',
-      tags: ['infusion', 'hidratación']
-    }
+      preparation: 'Agrega frutas y menta a una jarra con agua fría. Reposa en nevera 1 hora para infusionar.',
+      tags: ['infusion', 'hidratación'],
+    },
+    {
+      name: 'Cheesecake frío de frutos rojos',
+      time: '20 minutos + refrigeración',
+      servings: '8 porciones',
+      ingredients: ['Base de galleta y mantequilla', '300 g de queso crema', '200 g de yogurt griego', '1/2 taza de puré de fresas', 'Topping de arándanos frescos'],
+      preparation: 'Arma la base de galleta, mezcla queso crema con yogurt y puré de fresa, vierte sobre la base y refrigera 4 horas. Decora con arándanos.',
+      tags: ['cheesecake', 'frío', 'postre'],
+    },
   ],
   faqs: [
-    { question: '¿Qué productos venden?', answer: 'Fresas orgánicas como base, más arándanos y zarzamoras según disponibilidad, además de mermeladas y postres con berries.' },
-    { question: '¿Qué beneficios tiene la fresa?', answer: 'Rica en vitamina C, antioxidantes y fibra: apoya la salud cardiovascular, la piel y el sistema inmune con pocas calorías.' },
-    { question: '¿Cuánto cuesta la caja premium?', answer: 'La caja premium de 1 kg de fresas orgánicas está en $24.000 COP; podemos ajustar por volumen y personalización.' },
-    { question: '¿Cómo hago un pedido?', answer: 'Escríbenos por WhatsApp al +57 3226374266 o en el link https://wa.me/573226374266, cuéntanos cantidades y destino, y coordinamos envío y pago.' },
-    { question: '¿Hacen envíos nacionales?', answer: 'Sí, entregamos el mismo día en La Unión y rápido en municipios cercanos; el resto de Colombia llega en menos de una semana.' },
-    { question: '¿Aceptan pago contraentrega?', answer: 'Solo si se negocia por WhatsApp previamente; no tenemos datáfono ni PSE por ahora.' },
-    { question: '¿De dónde provienen las fresas?', answer: 'Trabajamos con emprendedores locales de La Unión, Antioquia, con foco en trazabilidad y frescura.' },
-    { question: '¿Qué significa Ethereal?', answer: 'Remite a lo etéreo: delicado, ligero y natural. Así buscamos que sean nuestros productos orgánicos.' },
-    { question: '¿Tienen promociones?', answer: 'Podemos manejar bundles o descuentos por volumen; pregunta en WhatsApp y te contamos las vigentes.' },
-    { question: '¿Tienen productos sin azúcar?', answer: 'Las frutas y preparaciones base no llevan azúcar añadida, salvo mermelada; podemos sugerir opciones naturales.' },
-    { question: '¿Cómo conservo mejor las fresas?', answer: 'Mantén en refrigeración en contenedor ventilado, sin lavar hasta consumir. Para más días, congela en una sola capa.' },
-    { question: '¿Es saludable comer fresas todos los días?', answer: 'Sí en porciones moderadas: 1 taza aporta antioxidantes, fibra y vitamina C con pocas calorías, salvo restricciones médicas.' }
+    { question: '¿Qué productos venden?', answer: 'Fresas orgánicas como base, más arándanos y zarzamoras. También mermeladas y postres de temporada.' },
+    { question: '¿Cómo hago un pedido?', answer: 'Escríbenos por WhatsApp y dinos cantidades, destino y si quieres caja personalizada. Coordinamos envío y pago al instante.' },
+    { question: '¿Tienen promociones?', answer: 'Sí, bundles por volumen y cajas de regalo. Pregunta por la promo activa y te la confirmo al momento.' },
+    { question: '¿Hacen envíos nacionales?', answer: 'Sí. Mismo día en La Unión; rutas rápidas a oriente antioqueño; menos de una semana al resto de Colombia según clima.' },
+    { question: '¿Aceptan pago contraentrega?', answer: 'Solo si se acuerda previamente; por ahora no manejamos datáfono.' },
+    { question: '¿De dónde provienen las fresas?', answer: 'De La Unión, Antioquia, con trazabilidad directa de pequeños productores aliados.' },
+    { question: '¿Puedo pedir opciones sin azúcar?', answer: 'Las frutas van sin azúcar añadida. En mermeladas usamos panela moderada y podemos ajustar recetas a tu necesidad.' },
+    { question: '¿Cómo conservar las fresas?', answer: 'Guárdalas refrigeradas en contenedor ventilado sin lavar hasta consumir. Para más días, congela en una sola capa.' },
+    { question: '¿Es saludable comer berries a diario?', answer: 'Sí en porciones moderadas; aportan vitamina C, polifenoles y fibra con baja carga glicémica.' },
   ],
-  suggestions: {
-    openers: [
-      'Puedo recomendarte combos de fresas con arándanos para bowls antioxidantes.',
-      'Si buscas algo ligero, prueba la avena fría con frutas orgánicas y topping de zarzamoras.',
-      'Para un regalo, arma una caja premium personalizada y la entregamos el mismo día en La Unión.'
-    ],
-    prompts: ['¿Quieres recetas rápidas?', '¿Prefieres opciones sin azúcar añadida?', '¿Buscas envío express o nacional?']
+  intents: {
+    ubicacion: ['ubicacion', 'ubicación', 'donde estan', 'direccion', 'dirección', 'mapa', 'sede', 'ciudad'],
+    pagos: ['pago', 'pagos', 'tarjeta', 'nequi', 'transferencia', 'pse', 'daviplata', 'contraentrega', 'factura'],
+    envios: ['envio', 'envíos', 'entrega', 'domicilio', 'envian', 'cobertura', 'llega', 'rutas'],
+    precios: ['precio', 'vale', 'cuesta', 'costo', 'cop', 'tarifa'],
+    empresa: ['empresa', 'ethereal', 'quienes son', 'fundadores', 'filosofia', 'misión', 'vision', 'historia'],
+    beneficios: ['beneficio', 'beneficios', 'salud', 'antioxidante', 'fibra', 'corazon', 'piel'],
+    recetas: ['receta', 'cocinar', 'preparar', 'batido', 'parfait', 'mermelada', 'postre', 'smoothie', 'cheesecake'],
+    nutricion: ['nutricion', 'nutrición', 'vitamina', 'calorias', 'proteina', 'carbohidratos', 'minerales'],
+    contacto: ['contacto', 'whatsapp', 'telefono', 'instagram', 'correo', 'hablar'],
+    promociones: ['promocion', 'promo', 'descuento', 'bundle', 'regalo'],
+    disponibilidad: ['disponible', 'stock', 'inventario', 'cuando hay', 'temporada'],
+    catalogo: ['catalogo', 'catálogo', 'productos', 'lista', 'portafolio'],
+    politicas: ['politica', 'políticas', 'devolucion', 'reemplazo', 'privacidad', 'terminos'],
+    sustituciones: ['sustituir', 'cambiar', 'reemplazo', 'alternativa', 'sin azucar'],
+    faq: ['preguntas frecuentes', 'duda comun', 'faq'],
+    desconocido: [],
   },
-  intents: [
-    { id: 'shipping', keywords: ['envio', 'entrega', 'domicilio', 'cobertura', 'llega'], responseKey: 'shipping' },
-    { id: 'payments', keywords: ['pago', 'pagos', 'tarjeta', 'nequi', 'transferencia', 'pse', 'daviplata', 'contraentrega'], responseKey: 'payments' },
-    { id: 'orders', keywords: ['pedido', 'comprar', 'whatsapp', 'ordenar', 'hacer pedido'], responseKey: 'orders' },
-    { id: 'pricing', keywords: ['precio', 'vale', 'cuesta', 'costo', 'cop'], responseKey: 'pricing' },
-    { id: 'origin', keywords: ['origen', 'provienen', 'donde cultivan', 'la union'], responseKey: 'origin' },
-    { id: 'philosophy', keywords: ['ethereal', 'filosofia', 'significa', 'marca'], responseKey: 'philosophy' },
-    { id: 'benefits', keywords: ['beneficio', 'beneficios', 'salud', 'nutricion'], responseKey: 'benefits' },
-    { id: 'recipes', keywords: ['receta', 'parfait', 'smoothie', 'mermelada', 'batido', 'tarta', 'helado'], responseKey: 'recipes' }
-  ],
-  fallback:
-    'Aún no tengo toda esa información, pero puedo ayudarte por WhatsApp 👉 https://wa.me/573226374266'
+  fallback: 'Puedo ayudarte directamente por WhatsApp 👉 https://wa.me/573226374266',
 };

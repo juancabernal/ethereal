@@ -2,10 +2,11 @@ import { useEffect, useRef, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { Bot, MessageCircle, Send, X } from 'lucide-react';
 import { useChatbotLogic } from '../hooks/useChatbotLogic';
+import { generateResponse } from '../ai/aiEngine';
 import { globalConfig } from '../config/globalConfig';
 
 export function Chatbot() {
-  const { messages, isOpen, isThinking, toggleOpen, sendMessage } = useChatbotLogic();
+  const { messages, isOpen, isThinking, toggleOpen, sendMessage } = useChatbotLogic(generateResponse);
   const [input, setInput] = useState('');
   const messagesRef = useRef(null);
 
