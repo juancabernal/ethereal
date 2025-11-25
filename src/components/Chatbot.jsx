@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { Bot, MessageCircle, Send, X } from 'lucide-react';
 import { useChatbotLogic } from '../hooks/useChatbotLogic';
+import { globalConfig } from '../config/globalConfig';
 
 export function Chatbot() {
   const { messages, isOpen, isThinking, toggleOpen, sendMessage } = useChatbotLogic();
@@ -39,7 +40,7 @@ export function Chatbot() {
                 </div>
                 <div>
                   <p className="text-sm text-white/70 uppercase tracking-[0.2em]">Asistente</p>
-                  <p className="text-white font-semibold">ETHEREAL Bot</p>
+                  <p className="text-white font-semibold">{globalConfig.nombre_empresa} Bot</p>
                 </div>
               </div>
               <button

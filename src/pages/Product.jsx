@@ -4,8 +4,8 @@ import { motion } from 'framer-motion';
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import AOS from 'aos';
-import { products } from '../data/products';
-import { siteConfig } from '../config/siteConfig';
+import { activeProducts } from '../data/products';
+import { globalConfig } from '../config/globalConfig';
 import { ProductCard } from '../components/ProductCard';
 import { parallaxImage } from '../animations/massByteAnimations';
 import { Sparkles } from 'lucide-react';
@@ -14,7 +14,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 export function Product() {
   const { id } = useParams();
-  const product = useMemo(() => products.find((item) => item.id === id), [id]);
+  const product = useMemo(() => activeProducts.find((item) => item.id === id), [id]);
   const [quantity, setQuantity] = useState(1);
 
   useEffect(() => {
@@ -38,11 +38,15 @@ export function Product() {
   }
 
   const total = product.price * quantity;
+  const whatsappNumber = (globalConfig.whatsapp || '').replace(/[^\d]/g, '');
   const whatsappMessage = encodeURIComponent(
-    `Hola, quiero comprar ${quantity} unidades de ${product.name} en ETHEREAL y coordinar envío desde La Unión, Antioquia.`,
+    `Hola, quiero comprar ${quantity} unidades de ${product.name} en ${globalConfig.nombre_empresa} y coordinar envío desde ${globalConfig.ubicacion}.`,
   );
 
-  const recommended = products.filter((item) => item.id !== product.id).slice(0, 2);
+  const recommended = useMemo(() => {
+    if (!product) return [];
+    return activeProducts.filter((item) => item.id !== product.id).slice(0, 2);
+  }, [product]);
 
   return (
     <div className="section-padding space-y-12">
@@ -64,7 +68,7 @@ export function Product() {
 
         <div className="space-y-6" data-aos="fade-left">
           <div className="space-y-2">
-            <p className="uppercase tracking-[0.3em] text-xs text-blush/60">Colección ETHEREAL</p>
+            <p className="uppercase tracking-[0.3em] text-xs text-blush/60">Colección {globalConfig.nombre_empresa}</p>
             <h1 className="text-4xl font-semibold">{product.name}</h1>
             <p className="text-blush/70">{product.longDescription}</p>
           </div>
@@ -90,18 +94,20 @@ export function Product() {
               <p className="text-xs text-blush/60">Valor referencial, ajustable según cantidad o personalizaciones.</p>
             </div>
           </div>
-          <a
-            href={`https://wa.me/${siteConfig.whatsappNumber.replace(/[^\d]/g, '')}?text=${whatsappMessage}`}
-            target="_blank"
-            rel="noreferrer"
-            className="neon-button inline-flex items-center justify-center gap-3"
-          >
-            Comprar vía WhatsApp
-          </a>
+          {globalConfig.whatsapp && (
+            <a
+              href={`https://wa.me/${whatsappNumber}?text=${whatsappMessage}`}
+              target="_blank"
+              rel="noreferrer"
+              className="neon-button inline-flex items-center justify-center gap-3"
+            >
+              Comprar vía WhatsApp
+            </a>
+          )}
           <div className="space-y-1 text-sm text-blush/70">
-            <p>Envíos el mismo día en La Unión y municipios cercanos; menos de una semana para otras ciudades.</p>
-            <p>Pagos: efectivo, transferencia o Nequi. Sin tarjetas ni PSE; contraentrega solo negociada por WhatsApp.</p>
-            <p>¿Necesitas cajas personalizadas, regalos o un producto no listado? Podemos revisar si es posible añadirlo.</p>
+            <p>{globalConfig.textos.envio}</p>
+            <p>{globalConfig.textos.pagos}</p>
+            <p>{globalConfig.textos.catalogo}</p>
           </div>
           <div>
             <h3 className="text-xl font-semibold mb-3">Información nutricional</h3>

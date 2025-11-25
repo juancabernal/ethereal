@@ -1,0 +1,22 @@
+<svg width="900" height="600" viewBox="0 0 900 600" xmlns="http://www.w3.org/2000/svg" fill="none">
+  <rect width="900" height="600" rx="32" fill="#140020"/>
+  <g filter="url(#shadow)">
+    <rect x="330" y="120" width="240" height="340" rx="50" fill="#f8f2ff"/>
+    <path d="M350 170h200v70c0 26-21 47-47 47H397c-26 0-47-21-47-47v-70z" fill="#ff8db4"/>
+    <path d="M350 270h200v70c0 26-21 47-47 47H397c-26 0-47-21-47-47v-70z" fill="#ffdfa8"/>
+    <path d="M350 360h200v30c0 32-26 58-58 58h-84c-32 0-58-26-58-58v-30z" fill="#f2d6ff"/>
+    <circle cx="400" cy="230" r="11" fill="#d92b4f"/>
+    <circle cx="450" cy="210" r="10" fill="#d92b4f"/>
+    <circle cx="500" cy="240" r="12" fill="#d92b4f"/>
+    <circle cx="430" cy="290" r="9" fill="#ff9fbf"/>
+    <circle cx="480" cy="300" r="10" fill="#ff9fbf"/>
+    <circle cx="420" cy="370" r="9" fill="#6f3ba2"/>
+    <circle cx="470" cy="380" r="10" fill="#6f3ba2"/>
+  </g>
+  <text x="200" y="520" fill="#f7e9ff" font-size="32" font-family="'Inter', sans-serif" font-weight="700">Capas frutales con yogurt vivo y granola crujiente</text>
+  <defs>
+    <filter id="shadow" x="260" y="80" width="380" height="420" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="18" stdDeviation="22" flood-color="#000" flood-opacity="0.35"/>
+    </filter>
+  </defs>
+</svg>

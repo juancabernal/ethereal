@@ -4,7 +4,7 @@ Sitio SPA animado con React + Vite, TailwindCSS, Framer Motion, GSAP, AOS y Loco
 
 ## Características clave
 - Animaciones avanzadas: Framer Motion para microinteracciones, GSAP + ScrollTrigger para parallax y depth, AOS para reveals, Locomotive Scroll para scroll suave, efectos hover 3D y transiciones entre páginas.
-- Arquitectura modular con datos centralizados en `src/data/products.js` y configuración editable en `src/config/siteConfig.js`.
+- Arquitectura modular con datos centralizados en `src/data/products.js` y configuración editable en `src/config/globalConfig.js`.
 - Componentes reutilizables: loader animado, navbar sticky, cards de producto con profundidad, hero con parallax y botón flotante de WhatsApp.
 - Preparado para Vercel con `vercel.json` y scripts de build.
 
@@ -38,7 +38,7 @@ Sitio SPA animado con React + Vite, TailwindCSS, Framer Motion, GSAP, AOS y Loco
 2. Copia la URL que aparece (ej. `http://localhost:5173`) y ábrela en tu navegador.
 
 ### 5. Cómo editar imágenes
-- Las imágenes se cargan desde URLs en `src/data/products.js`. Sustituye las URLs por las tuyas (pueden ser de tu CDN o de servicios como Cloudinary/Unsplash).
+- Las imágenes viven en `public/img/` y se referencian desde `src/data/products.js`. Sustituye las rutas por las tuyas conservando el prefijo `/img/`.
 - Para imágenes globales (favicon), reemplaza `public/favicon.svg`.
 
 ### 6. Cómo editar productos
@@ -61,7 +61,7 @@ Sitio SPA animado con React + Vite, TailwindCSS, Framer Motion, GSAP, AOS y Loco
 - Locomotive Scroll: opciones de suavidad en `src/App.jsx` (`multiplier`, `lerp`).
 
 ### 10. Cómo cambiar su número de WhatsApp
-- Abre `src/config/siteConfig.js` y actualiza `whatsappNumber` con tu número en formato internacional (ej. `+521234567890`).
+- Abre `src/config/globalConfig.js` y actualiza `whatsapp` con tu número en formato internacional (ej. `+521234567890`).
 
 ### 11. Cómo hacer deploy en Vercel paso a paso
 1. Crea una cuenta en [https://vercel.com](https://vercel.com) (gratis).
@@ -72,7 +72,8 @@ Sitio SPA animado con React + Vite, TailwindCSS, Framer Motion, GSAP, AOS y Loco
 
 ### 12. Dónde se guarda cada cosa y por qué
 - `src/data/products.js`: catálogo editable centralizado.
-- `src/config/siteConfig.js`: datos globales (WhatsApp, colores, redes, empresa).
+- `src/config/globalConfig.js`: datos globales (WhatsApp, colores, redes, empresa, textos y toggles).
+- `src/config/siteConfig.js`: reexporta datos para compatibilidad con componentes existentes.
 - `src/pages/*`: páginas principales (Home, Catálogo, Producto individual).
 - `src/components/*`: piezas reutilizables (loader, cards, botón flotante).
 - `src/layout/*`: estructura general con navbar y footer.
@@ -106,3 +107,10 @@ Se reemplazó la información por defecto con los datos reales de ETHEREAL: ahor
 - Sección de beneficios para la salud en las páginas de producto
 - Precios actualizados en pesos colombianos (COP)
 - Enfoque ampliado a productos orgánicos manteniendo las fresas como base
+
+## 🔧 Sistema de configuración centralizado agregado
+
+- Nuevo archivo `src/config/globalConfig.js` con información editable de empresa, contactos, colores y toggles para activar funciones como el chatbot o el botón flotante de WhatsApp.
+- Los productos ahora incluyen la propiedad `isActive` para activar/desactivar elementos sin borrarlos del catálogo o del buscador del chatbot.
+- Se añadieron imágenes coherentes por producto dentro de `public/img/` y se referencian desde `src/data/products.js`.
+- Para ajustar textos repetidos (horarios, mensajes de envío/pagos o CTA de WhatsApp) basta con editar `globalConfig` sin tocar múltiples archivos.

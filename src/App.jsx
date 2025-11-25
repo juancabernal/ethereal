@@ -9,6 +9,7 @@ import { Catalog } from './pages/Catalog';
 import { Product } from './pages/Product';
 import { Loader } from './components/Loader';
 import { useUiStore } from './store/uiStore';
+import { globalConfig } from './config/globalConfig';
 
 function PageTransition({ children, keyName }) {
   return (
@@ -63,8 +64,8 @@ export default function App() {
   useEffect(() => {
     const handler = () => {
       document.title = document.hidden
-        ? 'Vuelve a ETHEREAL – productos orgánicos de berries desde La Unión'
-        : 'ETHEREAL | Fresas y productos orgánicos en La Unión, Antioquia';
+        ? `Vuelve a ${globalConfig.nombre_empresa} – productos orgánicos de berries desde ${globalConfig.ubicacion}`
+        : `${globalConfig.nombre_empresa} | ${globalConfig.slogan}`;
     };
     document.addEventListener('visibilitychange', handler);
     return () => document.removeEventListener('visibilitychange', handler);

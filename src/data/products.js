@@ -3,9 +3,10 @@ export const products = [
     id: 'berries-aurora',
     name: 'Caja de fresas orgánicas – 500g',
     price: 12000,
+    isActive: true,
     images: [
-      'https://images.unsplash.com/photo-1464965911861-746a04b4bca6?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1459346264320-29f97b05b4c6?auto=format&fit=crop&w=1200&q=80',
+      '/img/fresas-500g-1.svg',
+      '/img/fresas-500g-2.svg',
     ],
     shortDescription:
       'Caja fresca de fresas orgánicas locales, listas para smoothies, bowls y postres ligeros.',
@@ -50,9 +51,10 @@ export const products = [
     id: 'elixir-rosen',
     name: 'Caja de fresas orgánicas premium – 1kg',
     price: 24000,
+    isActive: true,
     images: [
-      'https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1481391319762-47c0e9774757?auto=format&fit=crop&w=1200&q=80',
+      '/img/fresas-premium-1.svg',
+      '/img/fresas-premium-2.svg',
     ],
     shortDescription:
       'Selección premium de fresas orgánicas para eventos, repostería y cajas de regalo personalizadas.',
@@ -97,9 +99,10 @@ export const products = [
     id: 'petalos-nordic',
     name: 'Mermelada de fresa artesanal – 250g',
     price: 15000,
+    isActive: true,
     images: [
-      'https://images.unsplash.com/photo-1459346264320-29f97b05b4c6?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1470337458703-46ad1756a187?auto=format&fit=crop&w=1200&q=80',
+      '/img/mermelada-1.svg',
+      '/img/mermelada-2.svg',
     ],
     shortDescription:
       'Mermelada de fresa de cocción lenta, con fruta orgánica y especias suaves en batch pequeño.',
@@ -144,9 +147,10 @@ export const products = [
     id: 'parfait-fresa',
     name: 'Postre de fresa tipo parfait – porción individual',
     price: 10000,
+    isActive: true,
     images: [
-      'https://images.unsplash.com/photo-1464306076886-da185f6a9d05?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1200&q=80',
+      '/img/parfait-1.svg',
+      '/img/parfait-2.svg',
     ],
     shortDescription:
       'Parfait frío con fresas orgánicas, yogurt cremoso y granola artesanal en porción individual.',
@@ -191,9 +195,10 @@ export const products = [
     id: 'arandanos-250',
     name: 'Caja de arándanos orgánicos – 250g',
     price: 14000,
+    isActive: true,
     images: [
-      'https://images.unsplash.com/photo-1505253216365-899bce5f9bfd?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1619566636858-adf3ef46400b?auto=format&fit=crop&w=1200&q=80',
+      '/img/arandanos-1.svg',
+      '/img/arandanos-2.svg',
     ],
     shortDescription:
       'Arándanos orgánicos de temporada, listos para bowls, repostería y snacks antioxidantes.',
@@ -238,9 +243,10 @@ export const products = [
     id: 'zarzamoras-250',
     name: 'Caja de zarzamoras orgánicas – 250g',
     price: 13000,
+    isActive: true,
     images: [
-      'https://images.unsplash.com/photo-1464446066811-0802a0a067cf?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1502741478535-2aa38a0fae81?auto=format&fit=crop&w=1200&q=80',
+      '/img/zarzamoras-1.svg',
+      '/img/zarzamoras-2.svg',
     ],
     shortDescription:
       'Zarzamoras orgánicas con sabor intenso y balance dulce-ácido para toppings y repostería.',
@@ -282,3 +288,5 @@ export const products = [
     keywords: ['zarzamoras', 'moras', 'berries', '250g'],
   },
 ];
+
+export const activeProducts = products.filter((product) => product.isActive);
