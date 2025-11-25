@@ -1,23 +1,24 @@
+import { globalConfig } from './globalConfig';
+
 export const siteConfig = {
-  whatsappNumber: '+573226374266',
-  brandName: 'ETHEREAL',
-  slogan:
-    'Productos orgánicos de berries desde La Unión, Antioquia: fresas como base, sumando arándanos y zarzamoras con el mismo toque etéreo.',
+  whatsappNumber: globalConfig.whatsapp,
+  brandName: globalConfig.nombre_empresa,
+  slogan: globalConfig.slogan,
   colors: {
-    primary: '#ff3268',
-    secondary: '#5d3a74',
-    background: '#0b0b11',
-    accent: '#f2c6d8',
+    primary: globalConfig.colores.primario,
+    secondary: globalConfig.colores.secundario,
+    background: globalConfig.colores.fondo,
+    accent: globalConfig.colores.acento,
   },
-  logoText: 'ETHEREAL',
+  logoText: globalConfig.nombre_empresa,
   socials: {
-    instagram: 'https://instagram.com/ethereal.fresas',
-    facebook: 'https://facebook.com/ethereal.fresas',
-    tiktok: 'https://tiktok.com/@ethereal.fresas',
+    instagram: globalConfig.instagram,
+    facebook: globalConfig.facebook,
+    tiktok: globalConfig.tiktok,
   },
   company: {
-    name: 'ETHEREAL',
-    address: 'La Unión, Antioquia – Colombia',
-    email: 'etherealorganics@gmail.com',
+    name: globalConfig.nombre_empresa,
+    address: globalConfig.ubicacion,
+    email: globalConfig.correo,
   },
 };

@@ -1,0 +1,27 @@
+<svg width="900" height="600" viewBox="0 0 900 600" xmlns="http://www.w3.org/2000/svg" fill="none">
+  <rect width="900" height="600" rx="32" fill="#0f0b1c"/>
+  <g filter="url(#shadow)">
+    <rect x="300" y="130" width="240" height="320" rx="40" fill="#f8f2ff"/>
+    <rect x="330" y="160" width="180" height="260" rx="30" fill="#d83054"/>
+    <rect x="340" y="170" width="160" height="240" rx="24" fill="url(#jam)"/>
+    <rect x="300" y="110" width="240" height="40" rx="16" fill="#ffdca8"/>
+    <rect x="320" y="100" width="200" height="30" rx="12" fill="#ffc779"/>
+    <rect x="320" y="130" width="200" height="18" rx="8" fill="#f9e7c4" opacity="0.8"/>
+    <circle cx="360" cy="210" r="8" fill="#fff0f5"/>
+    <circle cx="400" cy="230" r="10" fill="#fff0f5"/>
+    <circle cx="450" cy="200" r="9" fill="#fff0f5"/>
+    <circle cx="460" cy="260" r="10" fill="#fff0f5"/>
+    <circle cx="400" cy="310" r="8" fill="#fff0f5"/>
+    <circle cx="440" cy="340" r="9" fill="#fff0f5"/>
+  </g>
+  <text x="90" y="520" fill="#f7e9ff" font-size="34" font-family="'Inter', sans-serif" font-weight="700">Mermelada artesanal de fresa · cocción lenta 250 g</text>
+  <defs>
+    <linearGradient id="jam" x1="340" y1="170" x2="520" y2="430" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#d83054"/>
+      <stop offset="1" stop-color="#9b1236"/>
+    </linearGradient>
+    <filter id="shadow" x="240" y="70" width="360" height="410" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="18" stdDeviation="22" flood-color="#000" flood-opacity="0.35"/>
+    </filter>
+  </defs>
+</svg>

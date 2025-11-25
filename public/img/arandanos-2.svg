@@ -1,0 +1,18 @@
+<svg width="900" height="600" viewBox="0 0 900 600" xmlns="http://www.w3.org/2000/svg" fill="none">
+  <rect width="900" height="600" rx="32" fill="#0f152d"/>
+  <g filter="url(#shadow)">
+    <circle cx="330" cy="320" r="95" fill="#496fde"/>
+    <circle cx="420" cy="300" r="105" fill="#385cbf"/>
+    <circle cx="500" cy="340" r="90" fill="#2f4ea4"/>
+    <circle cx="380" cy="370" r="75" fill="#5f84e9"/>
+    <circle cx="470" cy="260" r="70" fill="#7495f0"/>
+    <rect x="360" y="180" width="80" height="40" rx="14" fill="#3fbf7f" transform="rotate(-6 360 180)"/>
+    <rect x="440" y="190" width="90" height="36" rx="12" fill="#3fbf7f" transform="rotate(8 440 190)"/>
+  </g>
+  <text x="80" y="520" fill="#e6ecff" font-size="32" font-family="'Inter', sans-serif" font-weight="700">Mix antioxidante y dulce para parfaits y smoothies.</text>
+  <defs>
+    <filter id="shadow" x="220" y="140" width="420" height="380" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="18" stdDeviation="22" flood-color="#000" flood-opacity="0.35"/>
+    </filter>
+  </defs>
+</svg>

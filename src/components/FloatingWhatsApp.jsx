@@ -1,11 +1,15 @@
 import { motion } from 'framer-motion';
 import { Phone } from 'lucide-react';
-import { siteConfig } from '../config/siteConfig';
+import { globalConfig } from '../config/globalConfig';
 
 export function FloatingWhatsApp() {
+  if (!globalConfig.toggles.mostrarWhatsAppFlotante || !globalConfig.whatsapp) return null;
+
+  const whatsappNumber = (globalConfig.whatsapp || '').replace(/[^\d]/g, '');
+
   return (
     <motion.a
-      href={`https://wa.me/${siteConfig.whatsappNumber.replace(/[^\d]/g, '')}`}
+      href={`https://wa.me/${whatsappNumber}`}
       target="_blank"
       rel="noreferrer"
       className="fixed bottom-6 right-6 md:bottom-8 md:right-6 z-40"

@@ -1,0 +1,20 @@
+<svg width="900" height="600" viewBox="0 0 900 600" xmlns="http://www.w3.org/2000/svg" fill="none">
+  <rect width="900" height="600" rx="32" fill="#12001c"/>
+  <g filter="url(#shadow)">
+    <ellipse cx="280" cy="320" rx="140" ry="150" fill="#f3546f"/>
+    <ellipse cx="370" cy="360" rx="140" ry="150" fill="#d92b4f"/>
+    <rect x="250" y="160" width="90" height="70" rx="16" fill="#2f9d5b" transform="rotate(-6 250 160)"/>
+    <rect x="340" y="160" width="90" height="70" rx="16" fill="#2f9d5b" transform="rotate(10 340 160)"/>
+    <circle cx="280" cy="280" r="12" fill="#ffe3eb"/>
+    <circle cx="330" cy="350" r="10" fill="#ffe3eb"/>
+    <circle cx="390" cy="300" r="11" fill="#ffe3eb"/>
+    <circle cx="430" cy="380" r="9" fill="#ffe3eb"/>
+    <circle cx="340" cy="430" r="10" fill="#ffe3eb"/>
+  </g>
+  <text x="70" y="520" fill="#f7e9ff" font-size="32" font-family="'Inter', sans-serif" font-weight="600">Caja lista para smoothies, bowls y repostería.</text>
+  <defs>
+    <filter id="shadow" x="120" y="100" width="420" height="440" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="18" stdDeviation="22" flood-color="#000" flood-opacity="0.35"/>
+    </filter>
+  </defs>
+</svg>

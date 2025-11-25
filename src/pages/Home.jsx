@@ -4,9 +4,9 @@ import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import AOS from 'aos';
 import { Link } from 'react-router-dom';
-import { products } from '../data/products';
+import { activeProducts } from '../data/products';
 import { ProductCard } from '../components/ProductCard';
-import { siteConfig } from '../config/siteConfig';
+import { globalConfig } from '../config/globalConfig';
 import { staggerReveal, setupScrollLayers } from '../animations/massByteAnimations';
 import { Sparkles, Leaf } from 'lucide-react';
 
@@ -44,29 +44,31 @@ export function Home() {
             className="text-4xl md:text-5xl font-semibold leading-tight text-blush"
             data-reveal
           >
-            Desde La Unión, Antioquia, creamos productos orgánicos de berries con un toque etéreo, manteniendo a las fresas como protagonista.
+            {globalConfig.descripcion_general}
           </motion.h1>
           <motion.p className="text-lg text-blush/70 max-w-2xl" data-reveal>
-            {siteConfig.slogan}
+            {globalConfig.slogan}
           </motion.p>
           <motion.div className="flex flex-wrap gap-4" data-reveal>
-            <a
-              href={`https://wa.me/${siteConfig.whatsappNumber.replace(/[^\d]/g, '')}`}
-              target="_blank"
-              rel="noreferrer"
-              className="neon-button"
-            >
-              Hacer pedido
-            </a>
+            {globalConfig.whatsapp && (
+              <a
+                href={`https://wa.me/${(globalConfig.whatsapp || '').replace(/[^\d]/g, '')}`}
+                target="_blank"
+                rel="noreferrer"
+                className="neon-button"
+              >
+                Hacer pedido
+              </a>
+            )}
             <Link to="/catalogo" className="glass-panel border-white/10 px-6 py-3 rounded-full text-blush/80">
               Ver catálogo
             </Link>
           </motion.div>
           <motion.div className="flex gap-6" data-reveal>
             {[
-              { label: 'Origen', value: 'La Unión, Antioquia – Colombia' },
+              { label: 'Origen', value: globalConfig.ubicacion },
               { label: 'Equipo', value: 'Dos jóvenes de 20 años' },
-              { label: 'Catálogo', value: 'Orgánico (fresas, arándanos y zarzamoras sin certificación aún)' },
+              { label: 'Catálogo', value: globalConfig.textos.catalogo },
             ].map((item) => (
               <div key={item.label} className="space-y-1">
                 <p className="text-xs uppercase tracking-[0.2em] text-blush/60">{item.label}</p>
@@ -94,18 +96,14 @@ export function Home() {
             <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
             <div className="absolute bottom-6 left-6 text-blush">
               <p className="uppercase text-xs tracking-[0.3em] text-blush/70">Nacimos en 2024</p>
-              <p className="text-2xl font-semibold">Ethereal en La Unión</p>
+              <p className="text-2xl font-semibold">{globalConfig.nombre_empresa} en {globalConfig.ubicacion}</p>
             </div>
           </motion.div>
         </div>
       </section>
 
       <section className="section-padding grid md:grid-cols-3 gap-6" data-aos="fade-up">
-        {[
-          'Envíos el mismo día en La Unión y municipios aledaños',
-          'Cobertura nacional: menos de una semana a otras ciudades',
-          'Pagos: efectivo, transferencia y Nequi (sin tarjetas ni PSE)',
-        ].map((text) => (
+        {[globalConfig.textos.envio, globalConfig.textos.catalogo, globalConfig.textos.pagos].map((text) => (
           <div key={text} className="glass-panel p-6 rounded-3xl border border-white/10">
             <div className="w-10 h-10 rounded-xl bg-white/10 mb-4 flex items-center justify-center">
               <Leaf className="w-5 h-5 text-neon" />
@@ -121,7 +119,7 @@ export function Home() {
           <Link to="/catalogo" className="text-sm text-neon">Ver todo</Link>
         </div>
         <div className="grid md:grid-cols-3 gap-6">
-          {products.slice(0, 3).map((product) => (
+          {activeProducts.slice(0, 3).map((product) => (
             <ProductCard key={product.id} product={product} />
           ))}
         </div>

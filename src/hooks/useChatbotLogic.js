@@ -1,6 +1,6 @@
 import { useMemo, useState } from 'react';
-import { products } from '../data/products';
-import { siteConfig } from '../config/siteConfig';
+import { products, activeProducts } from '../data/products';
+import { globalConfig } from '../config/globalConfig';
 import { baseResponses } from '../data/chatResponses';
 
 const normalize = (text = '') => text.toLowerCase();
@@ -33,14 +33,14 @@ export function useChatbotLogic() {
     {
       role: 'bot',
       text:
-        'Hola, soy el asistente de ETHEREAL en La Unión, Antioquia. Pregúntame sobre nuestros productos orgánicos de berries (fresas, arándanos, zarzamoras), envíos, pagos, recetas o cómo pedir por WhatsApp.',
+        `Hola, soy el asistente de ${globalConfig.nombre_empresa} en ${globalConfig.ubicacion}. Pregúntame sobre nuestros productos orgánicos de berries (fresas, arándanos, zarzamoras), envíos, pagos, recetas o cómo pedir por WhatsApp.`,
     },
   ]);
   const [isOpen, setIsOpen] = useState(false);
   const [isThinking, setIsThinking] = useState(false);
 
   const priceRange = useMemo(() => {
-    const sorted = [...products].map((p) => p.price).sort((a, b) => a - b);
+    const sorted = [...activeProducts].map((p) => p.price).sort((a, b) => a - b);
     return { min: sorted[0], max: sorted[sorted.length - 1] };
   }, []);
 
@@ -49,6 +49,9 @@ export function useChatbotLogic() {
     const matched = productMatches(q);
 
     if (matched) {
+      if (!matched.isActive) {
+        return `${matched.name} está temporalmente fuera del catálogo activo. Podemos revisar disponibilidad o recomendar un reemplazo si nos escribes a WhatsApp: ${globalConfig.whatsapp}.`;
+      }
       if (q.includes('recet')) {
         return `Para ${matched.name}, sugerimos: ${summarizeRecipes(matched)}.`;
       }
@@ -65,23 +68,23 @@ export function useChatbotLogic() {
     }
 
     if (q.includes('ubic') || q.includes('donde') || q.includes('loca') || q.includes('la union')) {
-      return 'Estamos en La Unión, Antioquia – Colombia. Somos dos jóvenes de 20 años y coordinamos todo desde aquí; podemos entregar el mismo día en el municipio y alrededores y cubrir el resto del país en menos de una semana.';
+      return `Estamos en ${globalConfig.ubicacion}. Somos dos jóvenes de 20 años y coordinamos todo desde aquí; podemos entregar el mismo día en el municipio y alrededores y cubrir el resto del país en menos de una semana.`;
     }
 
     if (q.includes('envio') || q.includes('entrega') || q.includes('domicilio') || q.includes('cobertura')) {
-      return 'Entregamos el mismo día en La Unión y municipios aledaños. Para otros destinos solemos demorar menos de una semana; en zonas lejanas puede haber mínimos, negociables por WhatsApp. Hay cobertura nacional.';
+      return `${globalConfig.textos.envio} En zonas lejanas puede haber mínimos, negociables por WhatsApp. Hay cobertura nacional.`;
     }
 
     if (q.includes('pago') || q.includes('tarjeta') || q.includes('transfer') || q.includes('nequi') || q.includes('pse')) {
-      return 'Métodos de pago: efectivo, transferencia y Nequi. No aceptamos tarjetas, PSE ni Daviplata. Pagos contraentrega no están disponibles, pero se pueden evaluar casos excepcionales por WhatsApp.';
+      return globalConfig.textos.pagos;
     }
 
-    if (q.includes('pedido') || q.includes('comprar') || q.includes('whatsapp')) {
-      return `Haz tu pedido directo en WhatsApp: ${siteConfig.whatsappNumber}. Cuéntanos cantidades, si necesitas cajas personalizadas o si quieres revisar si se puede añadir un producto no listado.`;
-    }
+      if (q.includes('pedido') || q.includes('comprar') || q.includes('whatsapp')) {
+        return `${globalConfig.textos.whatsappCTA} ${globalConfig.whatsapp}. Cuéntanos cantidades, si necesitas cajas personalizadas o si quieres revisar si se puede añadir un producto no listado.`;
+      }
 
     if (q.includes('producto') || q.includes('catálogo') || q.includes('catalogo')) {
-      const top = products
+      const top = activeProducts
         .slice(0, 3)
         .map((p) => `${p.name} ($${p.price} COP)`) // catálogo no definitivo
         .join(' · ');
@@ -97,7 +100,7 @@ export function useChatbotLogic() {
     }
 
     if (q.includes('horario') || q.includes('hora')) {
-      return 'Atendemos 24/7 con tono cercano y juvenil. A veces las respuestas no son inmediatas, pero siempre te respondemos.';
+      return globalConfig.horarios;
     }
 
     if (q.includes('receta') || q.includes('parfait') || q.includes('smoothie') || q.includes('mermelada') || q.includes('batido')) {
