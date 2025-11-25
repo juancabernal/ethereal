@@ -21,7 +21,7 @@ export function Chatbot() {
   };
 
   return (
-    <div className="fixed bottom-6 right-20 md:right-28 z-50 flex flex-col items-end gap-3">
+    <div className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 md:right-12 z-50 flex flex-col items-end gap-3">
       <AnimatePresence>
         {isOpen && (
           <motion.div
@@ -30,11 +30,11 @@ export function Chatbot() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.98 }}
             transition={{ duration: 0.35, ease: 'easeOut' }}
-            className="w-[320px] sm:w-[360px] rounded-3xl glass-panel border border-white/10 overflow-hidden shadow-glow bg-black/60 backdrop-blur-xl"
+            className="w-[320px] sm:w-[360px] rounded-3xl glass-panel border border-white/10 overflow-hidden shadow-glow bg-black/70 backdrop-blur-xl"
           >
             <div className="flex items-center justify-between px-4 py-3 bg-gradient-to-r from-berry/70 via-lilac/60 to-neon/60 border-b border-white/10">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-2xl bg-white/10 flex items-center justify-center">
+                <div className="w-10 h-10 rounded-2xl bg-white/15 flex items-center justify-center">
                   <Bot className="w-5 h-5 text-blush" />
                 </div>
                 <div>
@@ -64,8 +64,8 @@ export function Chatbot() {
                   <div
                     className={`max-w-[80%] rounded-2xl px-4 py-3 leading-relaxed backdrop-blur-sm border border-white/10 ${
                       message.role === 'user'
-                        ? 'bg-gradient-to-br from-neon/80 to-lilac/70 text-night shadow-glow'
-                        : 'bg-white/5 text-blush'
+                        ? 'bg-gradient-to-br from-neon/80 to-lilac/80 text-night shadow-glow'
+                        : 'bg-white/10 text-blush'
                     }`}
                   >
                     {message.text}

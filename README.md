@@ -86,3 +86,11 @@ Sitio SPA animado con React + Vite, TailwindCSS, Framer Motion, GSAP, AOS y Loco
 - `vercel.json`: configurado para deploy estático; cambiarlo puede romper el enrutado.
 
 Con estos pasos puedes personalizar ETHEREAL sin conocimientos previos y lanzarlo en minutos.
+
+### 🔧 Actualización reciente
+
+- Ajuste de paleta de color: tonos rosas reemplazados por lilas profundos manteniendo el tema oscuro premium.
+- Animación del hero optimizada con transiciones más suaves y livianas.
+- Tipografía global actualizada a una fuente premium para toda la interfaz.
+- Chatbot flotante integrado con respuestas basadas en los productos disponibles.
+- Revisión de responsividad para móvil, tablet y desktop con el nuevo widget y animaciones.
