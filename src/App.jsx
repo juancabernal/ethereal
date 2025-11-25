@@ -63,8 +63,8 @@ export default function App() {
   useEffect(() => {
     const handler = () => {
       document.title = document.hidden
-        ? 'Vuelve a ETHEREAL – fresas orgánicas desde La Unión'
-        : 'ETHEREAL | Fresas orgánicas en La Unión, Antioquia';
+        ? 'Vuelve a ETHEREAL – productos orgánicos de berries desde La Unión'
+        : 'ETHEREAL | Fresas y productos orgánicos en La Unión, Antioquia';
     };
     document.addEventListener('visibilitychange', handler);
     return () => document.removeEventListener('visibilitychange', handler);

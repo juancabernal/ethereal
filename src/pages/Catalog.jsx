@@ -14,7 +14,7 @@ export function Catalog() {
         <p className="uppercase tracking-[0.3em] text-xs text-blush/60">Colección</p>
         <h1 className="text-4xl font-semibold text-blush">Catálogo celestial</h1>
         <p className="text-blush/70 max-w-2xl">
-          Catálogo en evolución desde La Unión, Antioquia. Fresas orgánicas reales (aún sin certificación), cultivadas con aliados locales; podemos revisar si es posible añadir productos o personalizar presentaciones.
+          Catálogo en evolución desde La Unión, Antioquia. Productos orgánicos de berries (fresas como base, sumando arándanos y zarzamoras aún sin certificación) cultivados con aliados locales; podemos revisar si es posible añadir productos o personalizar presentaciones.
         </p>
       </div>
       <div className="grid md:grid-cols-3 gap-6" data-aos="fade-up">

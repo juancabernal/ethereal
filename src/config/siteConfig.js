@@ -2,7 +2,7 @@ export const siteConfig = {
   whatsappNumber: '+573226374266',
   brandName: 'ETHEREAL',
   slogan:
-    'Fresas orgánicas cultivadas en La Unión, Antioquia por dos jóvenes de 20 años que viven lo etéreo.',
+    'Productos orgánicos de berries desde La Unión, Antioquia: fresas como base, sumando arándanos y zarzamoras con el mismo toque etéreo.',
   colors: {
     primary: '#ff3268',
     secondary: '#5d3a74',

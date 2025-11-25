@@ -38,13 +38,13 @@ export function Home() {
             data-reveal
           >
             <Sparkles className="w-4 h-4 text-neon" />
-            <span className="text-sm text-blush/80">Fresas orgánicas de lujo</span>
+            <span className="text-sm text-blush/80">Productos orgánicos de berries</span>
           </motion.div>
           <motion.h1
             className="text-4xl md:text-5xl font-semibold leading-tight text-blush"
             data-reveal
           >
-            Desde La Unión, Antioquia, creamos fresas orgánicas reales con un toque etéreo.
+            Desde La Unión, Antioquia, creamos productos orgánicos de berries con un toque etéreo, manteniendo a las fresas como protagonista.
           </motion.h1>
           <motion.p className="text-lg text-blush/70 max-w-2xl" data-reveal>
             {siteConfig.slogan}
@@ -66,7 +66,7 @@ export function Home() {
             {[
               { label: 'Origen', value: 'La Unión, Antioquia – Colombia' },
               { label: 'Equipo', value: 'Dos jóvenes de 20 años' },
-              { label: 'Catálogo', value: 'Orgánico, sin certificación aún' },
+              { label: 'Catálogo', value: 'Orgánico (fresas, arándanos y zarzamoras sin certificación aún)' },
             ].map((item) => (
               <div key={item.label} className="space-y-1">
                 <p className="text-xs uppercase tracking-[0.2em] text-blush/60">{item.label}</p>
@@ -133,7 +133,9 @@ export function Home() {
           <div className="space-y-4">
             <h3 className="text-3xl font-semibold">Respira frescura</h3>
             <p className="text-blush/70">
-              Somos un emprendimiento joven de La Unión que trabaja con fresas orgánicas reales (catálogo no definitivo). Puedes pedir cajas personalizadas, empaques de regalo o revisar si sumamos un producto nuevo.
+              Somos un emprendimiento joven de La Unión que trabaja con productos orgánicos de berries (catálogo no definitivo).
+              Las fresas siguen siendo nuestra base y ahora sumamos arándanos y zarzamoras. Puedes pedir cajas personalizadas,
+              empaques de regalo o revisar si sumamos un producto nuevo.
             </p>
             <Link to="/catalogo" className="neon-button inline-flex w-fit">Explorar catálogo</Link>
           </div>
