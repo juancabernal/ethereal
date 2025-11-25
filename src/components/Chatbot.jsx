@@ -91,7 +91,7 @@ export function Chatbot() {
                 <input
                   value={input}
                   onChange={(e) => setInput(e.target.value)}
-                  placeholder="Pregúntanos sobre precios, recetas..."
+                  placeholder="Pregúntanos sobre envíos, pagos o recetas"
                   className="flex-1 bg-[#0f0f13] border border-white/10 rounded-full px-4 py-2.5 text-sm text-white placeholder:text-white/60 focus:outline-none focus:border-neon/50"
                 />
                 <motion.button

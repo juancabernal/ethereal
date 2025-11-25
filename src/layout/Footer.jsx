@@ -26,6 +26,7 @@ export function Footer() {
             <Mail className="w-5 h-5 text-neon" />
             <span>{siteConfig.company.email}</span>
           </div>
+          <div className="text-sm text-blush/80">WhatsApp: 322 637 4266</div>
           <a
             href={`https://wa.me/${siteConfig.whatsappNumber.replace(/[^\d]/g, '')}`}
             target="_blank"
@@ -56,7 +57,7 @@ export function Footer() {
               title="Mapa"
               className="w-full h-full"
               loading="lazy"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.335428977196!2d-89.62166548505825!3d21.020235086004376!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f5671e70f400000%3A0x2f2d7b5a1ac61d1c!2sYucat%C3%A1n!5e0!3m2!1ses!2smx!4v1680000000000!5m2!1ses!2smx"
+              src="https://www.google.com/maps?q=La%20Uni%C3%B3n%2C%20Antioquia%2C%20Colombia&output=embed"
               style={{ border: 0 }}
               allowFullScreen=""
               referrerPolicy="no-referrer-when-downgrade"

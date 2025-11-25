@@ -47,7 +47,7 @@ export function ProductCard({ product }) {
           <h3 className="text-lg font-semibold text-blush">{product.name}</h3>
           <p className="text-sm text-blush/60">{product.shortDescription}</p>
         </div>
-        <span className="text-neon font-semibold">${product.price} MXN</span>
+        <span className="text-neon font-semibold">${product.price} COP</span>
       </div>
       <div className="flex gap-3">
         <Link
